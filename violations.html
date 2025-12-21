@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إدارة المخالفات</title>
+    <link rel="stylesheet" href="violations.css">
+        <link rel="stylesheet" href="active.css">
+      <script src="active.js"></script>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="logo">
+        <img src="" alt="شعار" class="logo-img">
+        <span class="logo-text">إدارة المرور</span>
+    </div>
+
+    <ul class="menu">
+        <li><a href="posss.html"><i class="icon">🏠</i><span>الرئيسية</span></a></li>
+        <li><a href="index.html"><i class="icon">📊</i><span>لوحة التحكم</span></a></li>
+        <li><a href="violations.html"><i class="icon">🚗</i><span>المركبات</span></a></li>
+        <li><a href="#"><i class="icon">📄</i><span>تسجيل مركبة</span></a></li>
+        <li class="active"><a href="#"><i class="icon">⚠️</i><span>المخالفات</span></a></li>
+        <li><a href="#"><i class="icon">📈</i><span>تحليلات البيانات</span></a></li>
+        <li><a href="#"><i class="icon">🧍‍♂️</i><span>المستخدمين</span></a></li>
+        <li><a href="#"><i class="icon">📁</i><span>إدارة الملفات</span></a></li>
+        <li><a href="#"><i class="icon">📍</i><span>نقاط التفتيش</span></a></li>
+        <li><a href="#"><i class="icon">🗺️</i><span>الخرائط</span></a></li>
+        <li><a href="#"><i class="icon">⚡</i><span>التنبؤات</span></a></li>
+        <li><a href="stting.html"><i class="icon">⚙️</i><span>الإعدادات</span></a></li>
+        <li class="logout"><a href="#"><i class="icon">🔐</i><span>تسجيل الخروج</span></a></li>
+    </ul>
+</aside>
+
+    <section class="main">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+          <!-- ====== CONTEXT BAR ====== -->
+<div class="context-bar">
+    <span>🚔 نظام المرور الذكي » ⚠️ إدارة المخالفات</span>
+    <span class="today">📅 اليوم: ١٥ فبراير ٢٠٢٤</span>
+</div>
+        </nav>
+
+        <!-- TOOLBAR -->
+        <div class="toolbar">
+            <input type="text" id="search" placeholder="🔍 البحث برقم اللوحة أو نوع المخالفة">
+
+            <div class="actions">
+                <button id="printBtn">🖨 طباعة</button>
+                <button id="sendBtn">📍 إرسال لنقطة تفتيش</button>
+                <button id="exportBtn">📄 تصدير PDF / Excel</button>
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-card">
+            <table id="violationsTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>رقم اللوحة</th>
+                        <th>نوع المخالفة</th>
+                        <th>التاريخ</th>
+                        <th>الموقع</th>
+                        <th>الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1234-س</td>
+                        <td>تجاوز السرعة</td>
+                        <td>2029-03-12</td>
+                        <td>شارع النيل</td>
+                        <td class="open">غير مدفوعة</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>4589-ع</td>
+                        <td>قطع إشارة</td>
+                        <td>2029-03-11</td>
+                        <td>الخرطوم</td>
+                        <td class="closed">مدفوعة</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- From Uiverse.io by Li-Deheng -->
+       <a href="bases.html"><button class="button">
+        <span>دفع الرسوم</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 43">
+            <polygon points="39.58,4.46 44.11,0 66,21.5 44.11,43 39.58,38.54 56.94,21.5"></polygon>
+            <polygon points="19.79,4.46 24.32,0 46.21,21.5 24.32,43 19.79,38.54 37.15,21.5"></polygon>
+            <polygon points="0,4.46 4.53,0 26.42,21.5 4.53,43 0,38.54 17.36,21.5"></polygon>
+        </svg>
+    </button>
+    </section></a>
+<!-- ====== ADVANCED SEARCH & FILTER ====== -->
+<div class="card filter-card">
+    <h3>🔍 بحث وفلترة متقدمة</h3>
+
+    <div class="search-row">
+        <input type="text" id="globalSearch" placeholder="ابحث برقم المخالفة أو المركبة أو السائق">
+        <button class="primary">بحث</button>
+    </div>
+
+    <div class="filters">
+        <select><option>جميع الحالات</option><option>قيد المعالجة</option><option>مكتملة</option><option>ملغاة</option></select>
+        <select><option>جميع الأنواع</option><option>سرعة</option><option>إشارة</option><option>ركن</option></select>
+        <select><option>جميع المناطق</option><option>الرياض</option><option>جدة</option><option>الدمام</option></select>
+        <select><option>آخر ٧ أيام</option><option>اليوم</option><option>شهر</option></select>
+        <select><option>جميع المركبات</option><option>سيارات</option><option>شاحنات</option></select>
+    </div>
+
+    <div class="filter-actions">
+        <button>🔄 تطبيق الفلاتر</button>
+        <button class="danger">🗑️ مسح الكل</button>
+        <button>💾 حفظ البحث</button>
+    </div>
+</div>
+
+    <script src="violations.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

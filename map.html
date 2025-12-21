@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>الخرائط الذكية - نظام المرور</title>
+    <link rel="stylesheet" href="map.css">
+        <link rel="stylesheet" href="active.css">
+      <script src="active.js"></script>
+</head>
+
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <h2>🚔 إدارة المرور</h2>
+        <ul>
+            <li>🏠 الرئيسية</li>
+            <li>⚠️ المخالفات</li>
+            <li>📊 التحليلات</li>
+            <li class="active">🗺️ الخرائط الذكية</li>
+            <li>🔮 التنبؤات</li>
+            <li>⚙️ الإعدادات</li>
+        </ul>
+        <!--عدل السايد اذا لقيت زمن-->
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <span>🚔 نظام المرور الذكي » 🗺️ الخرائط الذكية</span>
+            <span>📅 اليوم: 15 فبراير 2024</span>
+        </nav>
+
+        <!-- CONTROLS -->
+        <section class="controls">
+            <label>⏱️ الزمن:
+                <input type="range" min="0" max="23" value="12" id="timeRange">
+                <span id="timeValue">12:00</span>
+            </label>
+
+            <button id="toggleRisk">إظهار / إخفاء المخاطر</button>
+        </section>
+
+        <!-- MAP -->
+        <section class="map-container">
+            <div class="map">
+
+                <div class="zone high" data-name="طريق الملك فهد" data-risk="عالي" data-count="150"></div>
+                <div class="zone medium" data-name="حي النخيل" data-risk="متوسط" data-count="90"></div>
+                <div class="zone low" data-name="شارع التحلية" data-risk="منخفض" data-count="45"></div>
+
+            </div>
+
+            <!-- INFO PANEL -->
+            <div class="info-panel">
+                <h3>📍 تفاصيل المنطقة</h3>
+                <p id="infoText">مرر المؤشر على أي منطقة</p>
+            </div>
+        </section>
+        <section class="ai-insights">
+
+            <h2 class="ai-title">🧠 التحليل الذكي للمناطق</h2>
+
+            <div class="ai-grid">
+
+                <div class="ai-card">
+                    <span class="ai-label">مستوى الخطورة</span>
+                    <div class="ai-value danger">مرتفع</div>
+                    <div class="ai-percent">78%</div>
+                </div>
+
+                <div class="ai-card">
+                    <span class="ai-label">كثافة المرور</span>
+                    <div class="ai-value warning">متوسط</div>
+                    <div class="ai-percent">54%</div>
+                </div>
+
+                <div class="ai-card">
+                    <span class="ai-label">احتمالية المخالفات</span>
+                    <div class="ai-value primary">عالية</div>
+                    <div class="ai-percent">82%</div>
+                </div>
+
+                <div class="ai-card">
+                    <span class="ai-label">توصية AI</span>
+                    <div class="ai-value success">زيادة الرقابة</div>
+                    <div class="ai-percent">✓</div>
+                </div>
+
+            </div>
+
+            <!-- AI NETWORK -->
+            <div class="ai-network">
+                <canvas id="aiCanvas"></canvas>
+            </div>
+
+        </section>
+
+        <!-- MAP ACTION BUTTONS -->
+        <div class="map-actions">
+
+            <button class="map-btn camera-btn">
+                <span class="icon">📷</span>
+                <span class="text">عرض الكاميرات</span>
+            </button>
+
+            <button class="map-btn send-btn">
+                <span class="icon">🚓</span>
+                <span class="text">إرسال للدوريات</span>
+            </button>
+
+        </div>
+
+    </main>
+
+    <script src="map.js"></script>
+</body>
+
+</html>

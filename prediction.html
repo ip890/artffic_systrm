@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>التنبؤات المستقبلية</title>
+  <link rel="stylesheet" href="prediction.css">
+  <link rel="stylesheet" href="active.css">
+  <script src="active.js"></script>
+</head>
+<body>
+
+<!-- SIDEBAR (ثابت كما هو في مشروعك) -->
+<aside class="sidebar">
+  <h2>🚔 المرور الذكي</h2>
+  <ul>
+    <li>الرئيسية</li>
+    <li>لوحة التحكم</li>
+    <li>المخالفات</li>
+    <li class="active">🔮 التنبؤات</li>
+    <li>التحليلات</li>
+  </ul>
+</aside>
+
+<!-- MAIN -->
+<section class="main">
+
+<!-- NAV -->
+<nav class="navbar">
+  🚔 نظام المرور الذكي » 🔮 التنبؤات المستقبلية
+  <span class="date">📅 ١٥ فبراير ٢٠٢٤</span>
+</nav>
+
+<!-- SETTINGS -->
+<div class="card settings">
+  <h3>⚙️ إعدادات التنبؤ</h3>
+
+  <div class="grid">
+    <select id="timeRange">
+      <option>الأسبوع القادم</option>
+      <option>الشهر القادم</option>
+      <option>٣ أشهر</option>
+    </select>
+
+    <select id="confidence">
+      <option>عالي (٨٥٪+)</option>
+      <option>متوسط</option>
+    </select>
+
+    <select id="dataScope">
+      <option>آخر ٩٠ يوم</option>
+      <option>آخر ٦ أشهر</option>
+    </select>
+
+    <select>
+      <option>الذكاء الاصطناعي المتقدم</option>
+      <option>النموذج الإحصائي</option>
+    </select>
+  </div>
+
+  <button id="updateBtn">🌀 تحديث التنبؤات</button>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <div class="box">🔢 الإجمالي المتوقع<br><b id="total">1200</b></div>
+  <div class="box">📈 الذروة<br><b id="peak">145</b></div>
+  <div class="box">⬆️ الزيادة<br><b id="growth">12%</b></div>
+  <div class="box">🎯 دقة النموذج<br><b id="accuracy">87%</b></div>
+</div>
+
+<!-- GRAPH -->
+<div class="card">
+  <h3>📈 التنبؤ الأسبوعي</h3>
+  <canvas id="forecast" width="600" height="250"></canvas>
+  <p class="hint">🧠 مرر الماوس لرؤية السيناريوهات البديلة</p>
+</div>
+
+<div class="card scenario">
+  <h3>🧭 سيناريوهات محتملة</h3>
+  <div class="scenario-buttons">
+    <button data-mode="optimistic">🟢 متفائل</button>
+    <button data-mode="normal" class="active">🔵 طبيعي</button>
+    <button data-mode="worst">🔴 متشائم</button>
+  </div>
+</div>
+<!-- HOT ZONES -->
+<div class="card">
+  <h3>🗺️ مناطق الخطورة المتوقعة</h3>
+
+  <table>
+    <tr><th>المنطقة</th><th>الخطورة</th><th>المخالفات</th><th>إجراء</th></tr>
+    <tr><td>طريق الملك فهد</td><td>🔴 عالي</td><td>150</td><td>زيادة الدوريات</td></tr>
+    <tr><td>النخيل</td><td>🟡 متوسط</td><td>90</td><td>حملة توعية</td></tr>
+    <tr><td>التحلية</td><td>🟢 منخفض</td><td>45</td><td>مراقبة</td></tr>
+  </table>
+
+  <button>🗺️ خريطة تفاعلية</button>
+</div>
+<!-- <confidance level-->
+<div class="box confidence">
+  🔒 مستوى الثقة
+  <div class="meter">
+    <span id="confidenceFill"></span>
+  </div>
+  <b id="confidenceValue">87%</b>
+</div>
+<!-- INSIGHTS -->
+<div class="card insights">
+  <h3>💡 توصيات ذكية</h3>
+<!--ai <box-->
+<div class="card ai-box">
+  <h3>🤖 تفسير التنبؤ</h3>
+  <p id="aiText">
+    الزيادة المتوقعة ناتجة عن ارتفاع الكثافة المرورية
+    صباح الثلاثاء مع انخفاض الالتزام بالسرعة.
+  </p>
+</div>
+
+  <div class="tip high">
+    زيادة الدوريات صباح الثلاثاء  
+    <span>⭐ أولوية عالية</span>
+  </div>
+
+  <div class="tip mid">
+    حملة توعية في النخيل  
+    <span>⭐⭐⭐⭐</span>
+  </div>
+
+  <div class="tip low">
+    مراقبة ذكية في التحلية  
+    <span>⭐⭐⭐</span>
+  </div>
+
+  <button>✅ اعتماد التوصيات</button>
+</div>
+
+</section>
+
+<script src="prediction.js"></script>
+</body>
+</html>

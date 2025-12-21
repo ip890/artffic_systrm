@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تحليلات البيانات</title>
+<link rel="stylesheet" href="analysis.css">
+<link rel="stylesheet" href="active.css">
+<script src="active.js"></script>
+</head>
+<body>
+
+<!-- ===== SIDEBAR (محفوظ) ===== -->
+ <!--هنا ملقيت زمن البلقي رنفسو فاضي يعدلها -->
+<aside class="sidebar">
+  <h2>إدارة المرور</h2>
+  <ul>
+  <a href="posss.html"> <li>🏠 الرئيسية</li> </a>
+   <a href="violations.html"> <li>⚠️ المخالفات</li></a>
+  <a href="analysis.html">  <li class="active">📊 تحليلات البيانات</li></a>
+  <a href="inspection.html">  <li>📍 نقاط التفتيش</li></a>
+  <a href="login.html">  <li>🔐 خروج</li></a>
+  </ul>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<main class="main">
+
+<!-- ===== HEADER ===== -->
+<header class="analytics-header">
+  <div>
+    <h1>📊 مركز تحليلات المرور الذكي</h1>
+    <p>قرارات مبنية على بيانات حقيقية</p>
+  </div>
+  <select id="timeRange">
+    <option>اليوم</option>
+    <option>آخر 7 أيام</option>
+    <option>آخر شهر</option>
+    <option>آخر سنة</option>
+  </select>
+</header>
+
+<!-- ===== KPI ===== -->
+<section class="kpi-grid">
+  <div class="kpi">🚗<span>12,450</span><small>إجمالي المركبات</small></div>
+  <div class="kpi danger">⚠️<span>2,540</span><small>مخالفات</small></div>
+  <div class="kpi">💰<span>3.2M</span><small>غرامات</small></div>
+  <div class="kpi success">📉<span>-18%</span><small>انخفاض الحوادث</small></div>
+</section>
+
+<!-- ===== ANALYSIS ZONES ===== -->
+<section class="analysis-grid">
+
+  <!-- TIMELINE -->
+  <div class="card wide">
+    <h3>📈 تطور المخالفات زمنيًا</h3>
+    <canvas id="timeline"></canvas>
+  </div>
+
+  <!-- HOTSPOTS -->
+  <div class="card">
+    <h3>🗺️ النقاط الساخنة</h3>
+    <ul class="hotspots">
+      <li>📍 تقاطع الملك فهد <b>↑ 32%</b></li>
+      <li>📍 طريق المطار <b>↑ 21%</b></li>
+      <li>📍 الدائري الغربي <b>↑ 18%</b></li>
+    </ul>
+  </div>
+
+  <!-- TYPES -->
+  <div class="card">
+    <h3>🚨 أنواع المخالفات</h3>
+    <canvas id="types"></canvas>
+  </div>
+
+  <!-- BEHAVIOR -->
+  <div class="card wide">
+    <h3>🧠 تحليل السلوك</h3>
+    <div class="behavior">
+      <div>⏱️ الذروة: <b>5 - 7 مساءً</b></div>
+      <div>🚘 أكثر مركبة: <b>سيدان</b></div>
+      <div>🧍‍♂️ فئة السائقين: <b>25 - 35</b></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== DECISION PANEL ===== -->
+<section class="decision">
+  <h2>🤖 توصيات ذكية</h2>
+  <ul>
+    <li>✔️ زيادة الدوريات في طريق المطار</li>
+    <li>✔️ تركيب رادار إضافي في تقاطع الملك فهد</li>
+    <li>✔️ حملات توعوية وقت الذروة</li>
+  </ul>
+</section>
+
+</main>
+
+<script src="analysis.js"></script>
+</body>
+</html>

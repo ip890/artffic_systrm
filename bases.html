@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الدفع الإلكتروني للمخالفات المرورية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --border-radius: 10px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .card-header i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .card-header h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+        }
+
+        .btn-success:hover {
+            background-color: #219653;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        .btn-warning {
+            background-color: var(--warning-color);
+        }
+
+        .btn-warning:hover {
+            background-color: #d68910;
+        }
+
+        .btn:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .violation-details {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            border-right: 4px solid var(--secondary-color);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--danger-color);
+        }
+
+        .detail-label {
+            color: #555;
+        }
+
+        .detail-value {
+            font-weight: 600;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-method:hover {
+            border-color: var(--secondary-color);
+        }
+
+        .payment-method.active {
+            border-color: var(--secondary-color);
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+
+        .payment-method i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .bank-card {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bank-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .bank-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .bank-logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .card-type {
+            font-size: 1.8rem;
+        }
+
+        .card-number {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: monospace;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-holder,
+        .card-expiry {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .card-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .steps::before {
+            content: "";
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .step.active .step-circle {
+            background-color: var(--secondary-color);
+        }
+
+        .step.completed .step-circle {
+            background-color: var(--success-color);
+        }
+
+        .step-label {
+            font-weight: 600;
+            color: #777;
+        }
+
+        .step.active .step-label {
+            color: var(--secondary-color);
+        }
+
+        .step.completed .step-label {
+            color: var(--success-color);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .message.success {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: var(--success-color);
+            border: 1px solid rgba(39, 174, 96, 0.3);
+        }
+
+        .message.error {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: var(--danger-color);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .message.info {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .receipt {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed #ddd;
+            padding-bottom: 20px;
+        }
+
+        .receipt-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .receipt-details {
+            margin-bottom: 25px;
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .receipt-row.total {
+            border-top: 2px solid var(--primary-color);
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--danger-color);
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        .receipt-footer {
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px dashed #ddd;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .actions .btn {
+            flex: 1;
+        }
+
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--secondary-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-traffic-light"></i>
+                <h1>نظام الدفع الإلكتروني للمخالفات المرورية</h1>
+            </div>
+            <p class="subtitle">الدفع الآمن والسريع لمخالفاتك المرورية عبر الإنترنت</p>
+        </header>
+
+        <!-- خطوات الدفع -->
+        <div class="steps card">
+            <div class="step active" id="step1">
+                <div class="step-circle">1</div>
+                <span class="step-label">البحث عن المخالفات</span>
+            </div>
+            <div class="step" id="step2">
+                <div class="step-circle">2</div>
+                <span class="step-label">تفاصيل الدفع</span>
+            </div>
+            <div class="step" id="step3">
+                <div class="step-circle">3</div>
+                <span class="step-label">التأكيد والتنفيذ</span>
+            </div>
+            <div class="step" id="step4">
+                <div class="step-circle">4</div>
+                <span class="step-label">إيصال الدفع</span>
+            </div>
+        </div>
+
+        <!-- رسائل النظام -->
+        <div id="systemMessage" class="message hidden"></div>
+
+        <div class="main-content">
+            <!-- البحث عن المخالفات -->
+            <div class="card" id="violationSearchSection">
+                <div class="card-header">
+                    <i class="fas fa-search"></i>
+                    <h2>البحث عن المخالفات</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="violationNumber"><i class="fas fa-file-invoice"></i> رقم المخالفة</label>
+                    <input type="text" id="violationNumber" placeholder="أدخل رقم المخالفة (مثال: TRF202400123)">
+                </div>
+
+                <div class="form-group">
+                    <label for="vehiclePlate"><i class="fas fa-car"></i> رقم لوحة المركبة</label>
+                    <input type="text" id="vehiclePlate" placeholder="مثال: ك أ ب 1234">
+                </div>
+
+                <div class="form-group">
+                    <label for="nationalId"><i class="fas fa-id-card"></i> رقم الهوية الوطنية</label>
+                    <input type="text" id="nationalId" placeholder="أدخل رقم الهوية الوطنية">
+                </div>
+
+                <button class="btn" id="searchViolationsBtn">
+                    <i class="fas fa-search"></i> بحث عن المخالفات
+                </button>
+
+                <!-- تفاصيل المخالفة -->
+                <div class="violation-details hidden" id="violationDetails">
+                    <h3 style="margin-bottom: 15px; color: var(--primary-color);">تفاصيل المخالفات</h3>
+                    <div id="violationDetailsContent">
+                        <!-- سيتم ملؤها بواسطة JavaScript -->
+                    </div>
+                    <button class="btn btn-success" id="proceedToPaymentBtn" style="margin-top: 20px;">
+                        <i class="fas fa-credit-card"></i> المتابعة للدفع
+                    </button>
+                </div>
+            </div>
+
+            <!-- تفاصيل الدفع -->
+            <div class="card hidden" id="paymentSection">
+                <div class="card-header">
+                    <i class="fas fa-credit-card"></i>
+                    <h2>تفاصيل الدفع</h2>
+                </div>
+
+                <!-- طرق الدفع -->
+                <div class="payment-methods">
+                    <div class="payment-method active" data-method="credit">
+                        <i class="fas fa-credit-card"></i>
+                        <div>بطاقة ائتمان</div>
+                    </div>
+                    <div class="payment-method" data-method="debit">
+                        <i class="fas fa-university"></i>
+                        <div>بطاقة مدى</div>
+                    </div>
+                    <div class="payment-method" data-method="bank">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>الخدمات المصرفية</div>
+                    </div>
+                </div>
+
+                <!-- محاكاة بطاقة البنك -->
+                <div class="bank-card">
+                    <div class="bank-card-header">
+                        <div class="bank-logo">بنك السودان المركزي </div>
+                        <div class="card-type">
+                            <i class="fab fa-cc-visa"></i>
+                        </div>
+                    </div>
+
+                    <div class="card-number">
+                        <span id="cardNumberDisplay">**** **** **** 1234</span>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="card-holder">
+                            <span class="card-label">حامل البطاقة</span>
+                            <span class="card-value" id="cardHolderDisplay">محمد أحمد</span>
+                        </div>
+                        <div class="card-expiry">
+                            <span class="card-label">صلاحية حتى</span>
+                            <span class="card-value" id="cardExpiryDisplay">05/27</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- نموذج بيانات البطاقة -->
+                <div class="form-group">
+                    <label for="cardHolder"><i class="fas fa-user"></i> اسم حامل البطاقة</label>
+                    <input type="text" id="cardHolder" placeholder="كما هو مكتوب على البطاقة">
+                </div>
+
+                <div class="form-group">
+                    <label for="cardNumber"><i class="fas fa-credit-card"></i> رقم البطاقة</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                </div>
+
+                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <label for="cardExpiry"><i class="fas fa-calendar-alt"></i> تاريخ الانتهاء</label>
+                        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div>
+                        <label for="cardCVC"><i class="fas fa-lock"></i> رمز الأمان (CVC)</label>
+                        <input type="password" id="cardCVC" placeholder="123" maxlength="3">
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-warning" id="backToSearchBtn">
+                        <i class="fas fa-arrow-right"></i> رجوع
+                    </button>
+                    <button class="btn btn-success" id="processPaymentBtn">
+                        <i class="fas fa-check-circle"></i> تأكيد الدفع
+                    </button>
+                </div>
+            </div>
+
+            <!-- إيصال الدفع -->
+            <div class="card hidden" id="receiptSection">
+                <div class="loading" id="paymentProcessing">
+                    <div class="loading-spinner"></div>
+                    <h3>جاري معالجة الدفع...</h3>
+                    <p>يرجى الانتظار، يتم الآن التواصل مع البنك</p>
+                </div>
+
+                <div class="receipt hidden" id="paymentReceipt">
+                    <div class="receipt-header">
+                        <h2 class="receipt-title">إيصال الدفع الناجح</h2>
+                        <p>نظام المرور الذكي - جمهوريه السودان</p>
+                        <p id="receiptDate"></p>
+                        <p id="receiptNumber"></p>
+                    </div>
+
+                    <div class="receipt-details" id="receiptDetails">
+                        <!-- سيتم ملؤها بواسطة JavaScript -->
+                    </div>
+
+                    <div class="receipt-footer">
+                        <p>تم استلام المبلغ بنجاح</p>
+                        <p>شكراً لك على استخدام نظام الدفع الإلكتروني</p>
+                        <p>للاستفسارات: 1990</p>
+                    </div>
+
+                    <div class="actions" style="margin-top: 30px;">
+                        <button class="btn btn-warning" id="newPaymentBtn">
+                            <i class="fas fa-redo"></i> دفعة جديدة
+                        </button>
+                        <button class="btn" id="printReceiptBtn">
+                            <i class="fas fa-print"></i> طباعة الإيصال
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 نظام المرور الذكي - جميع الحقوق محفوظة</p>
+            <p>هذا النظام آمن ومحمي بالتشفير. بياناتك محمية وفقاً لأنظمة الأمن السيبراني</p>
+            <p>للاستفسارات والدعم الفني: 1990 | البريد الإلكتروني: support@traffic.gov.sa</p>
+        </footer>
+    </div>
+
+    <script>
+        // البيانات المخزنة للمخالفات (محاكاة قاعدة بيانات)
+        const violationsData = [
+            {
+                id: "TRF202400123",
+                plateNumber: "ك أ ب 1234",
+                nationalId: "1101234567",
+                violations: [
+                    {
+                        type: "تجاوز الإشارة الحمراء",
+                        date: "2054-03-15",
+                        location: "تقاطع الكبري",
+                        amount: 300,
+                        points: 6
+                    },
+                    {
+                        type: "تجاوز السرعة المحددة",
+                        date: "2025-03-10",
+                        location: "شارع ال60",
+                        amount: 500,
+                        points: 4
+                    },
+                    {
+                        type: "ركن في مكان ممنوع",
+                        date: "2054-03-05",
+                        location: "وسط مدينة  ",
+                        amount: 150,
+                        points: 2
+                    }
+                ]
+            },
+            {
+                id: "TRF202400456",
+                plateNumber: "د س ص 7890",
+                nationalId: "1107654321",
+                violations: [
+                    {
+                        type: "عدم ربط حزام الأمان",
+                        date: "2025-03-12",
+                        location: "طريق  مدني",
+                        amount: 150,
+                        points: 2
+                    }
+                ]
+            },
+            {
+                id: "TRF202400789",
+                plateNumber: "ن ع ر 2468",
+                nationalId: "1109876543",
+                violations: [
+                    {
+                        type: "استخدام الهاتف أثناء القيادة",
+                        date: "2025-03-18",
+                        location: "طريق التيل",
+                        amount: 300,
+                        points: 4
+                    },
+                    {
+                        type: "القيادة بدون رخصة",
+                        date: "2025-03-01",
+                        location: "حي  المنيره سوبا",
+                        amount: 1000,
+                        points: 10
+                    }
+                ]
+            }
+        ];
+
+        // حالة التطبيق
+        let appState = {
+            currentStep: 1,
+            selectedViolations: [],
+            paymentMethod: 'credit',
+            paymentAmount: 0,
+            paymentStatus: 'pending',
+            receiptData: null
+        };
+
+        // تهيئة التطبيق عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function () {
+            // إضافة مستمعي الأحداث
+            document.getElementById('searchViolationsBtn').addEventListener('click', searchViolations);
+            document.getElementById('proceedToPaymentBtn').addEventListener('click', proceedToPayment);
+            document.getElementById('backToSearchBtn').addEventListener('click', backToSearch);
+            document.getElementById('processPaymentBtn').addEventListener('click', processPayment);
+            document.getElementById('newPaymentBtn').addEventListener('click', resetForm);
+            document.getElementById('printReceiptBtn').addEventListener('click', printReceipt);
+
+            // مستمعي أحداث طرق الدفع
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', selectPaymentMethod);
+            });
+
+            // تنسيق رقم البطاقة أثناء الكتابة
+            document.getElementById('cardNumber').addEventListener('input', formatCardNumber);
+            document.getElementById('cardExpiry').addEventListener('input', formatExpiryDate);
+
+            // تحديث عرض البطاقة
+            document.getElementById('cardHolder').addEventListener('input', updateCardDisplay);
+            document.getElementById('cardNumber').addEventListener('input', updateCardDisplay);
+            document.getElementById('cardExpiry').addEventListener('input', updateCardDisplay);
+
+            // عرض معلومات المساعدة
+            showMessage('مرحباً بك في نظام الدفع الإلكتروني للمخالفات المرورية. يرجى إدخال بيانات البحث للبدء.', 'info');
+        });
+
+        // وظيفة البحث عن المخالفات
+        function searchViolations() {
+            const violationNumber = document.getElementById('violationNumber').value.trim();
+            const vehiclePlate = document.getElementById('vehiclePlate').value.trim();
+            const nationalId = document.getElementById('nationalId').value.trim();
+
+            // التحقق من البيانات المدخلة
+            if (!violationNumber || !vehiclePlate || !nationalId) {
+                showMessage('يرجى ملء جميع الحقول المطلوبة للبحث', 'error');
+                return;
+            }
+
+            // البحث عن المخالفات في البيانات المخزنة
+            const foundViolation = violationsData.find(v =>
+                v.id === violationNumber &&
+                v.plateNumber === vehiclePlate &&
+                v.nationalId === nationalId
+            );
+
+            if (!foundViolation) {
+                showMessage('لم يتم العثور على مخالفات مطابقة للبيانات المدخلة', 'error');
+                return;
+            }
+
+            // عرض تفاصيل المخالفات
+            displayViolationDetails(foundViolation);
+
+            // حفظ المخالفات المحددة في حالة التطبيق
+            appState.selectedViolations = foundViolation.violations;
+
+            // تحديث الخطوة
+            updateStep(1);
+
+            showMessage('تم العثور على ' + foundViolation.violations.length + ' مخالفة', 'success');
+        }
+
+        // عرض تفاصيل المخالفات
+        function displayViolationDetails(violationData) {
+            const detailsContainer = document.getElementById('violationDetailsContent');
+            const violationDetails = document.getElementById('violationDetails');
+
+            let totalAmount = 0;
+            let totalPoints = 0;
+            let detailsHTML = '';
+
+            violationData.violations.forEach((violation, index) => {
+                totalAmount += violation.amount;
+                totalPoints += violation.points;
+
+                detailsHTML += `
+                    <div class="detail-row">
+                        <span class="detail-label">${violation.type}</span>
+                        <span class="detail-value">${violation.amount} جنيه</span>
+                    </div>
+                    <div class="detail-row" style="font-size: 0.9rem; color: #666;">
+                        <span class="detail-label">التاريخ: ${violation.date} | الموقع: ${violation.location}</span>
+                        <span class="detail-value">${violation.points} نقطة</span>
+                    </div>
+                `;
+            });
+
+            detailsHTML += `
+                <div class="detail-row">
+                    <span class="detail-label">إجمالي المخالفات</span>
+                    <span class="detail-value">${violationData.violations.length} مخالفة</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">إجمالي النقاط</span>
+                    <span class="detail-value">${totalPoints} نقطة</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">المبلغ الإجمالي</span>
+                    <span class="detail-value">${totalAmount} جنيه سوداني</span>
+                </div>
+            `;
+
+            detailsContainer.innerHTML = detailsHTML;
+            violationDetails.classList.remove('hidden');
+
+            // حفظ المبلغ الإجمالي
+            appState.paymentAmount = totalAmount;
+        }
+
+        // المتابعة إلى الدفع
+        function proceedToPayment() {
+            document.getElementById('violationSearchSection').classList.add('hidden');
+            document.getElementById('paymentSection').classList.remove('hidden');
+
+            updateStep(2);
+            showMessage('الرجاء إدخال بيانات الدفع لإتمام عملية الدفع', 'info');
+        }
+
+        // العودة إلى البحث
+        function backToSearch() {
+            document.getElementById('paymentSection').classList.add('hidden');
+            document.getElementById('violationSearchSection').classList.remove('hidden');
+
+            updateStep(1);
+        }
+
+        // اختيار طريقة الدفع
+        function selectPaymentMethod(event) {
+            const methodElement = event.currentTarget;
+            const method = methodElement.getAttribute('data-method');
+
+            // إزالة التحديد من جميع الطرق
+            document.querySelectorAll('.payment-method').forEach(m => {
+                m.classList.remove('active');
+            });
+
+            // تحديد الطريقة المختارة
+            methodElement.classList.add('active');
+            appState.paymentMethod = method;
+
+            // تحديث عرض البطاقة بناءً على طريقة الدفع
+            updateCardType(method);
+        }
+
+        // تحديث نوع البطاقة
+        function updateCardType(method) {
+            const cardTypeIcon = document.querySelector('.card-type i');
+
+            switch (method) {
+                case 'credit':
+                    cardTypeIcon.className = 'fab fa-cc-visa';
+                    break;
+                case 'debit':
+                    cardTypeIcon.className = 'fab fa-cc-mastercard';
+                    break;
+                case 'bank':
+                    cardTypeIcon.className = 'fas fa-university';
+                    break;
+            }
+        }
+
+        // تنسيق رقم البطاقة
+        function formatCardNumber(event) {
+            let value = event.target.value.replace(/\D/g, '');
+            let formattedValue = '';
+
+            for (let i = 0; i < value.length && i < 16; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formattedValue += ' ';
+                }
+                formattedValue += value[i];
+            }
+
+            event.target.value = formattedValue;
+        }
+
+        // تنسيق تاريخ الانتهاء
+        function formatExpiryDate(event) {
+            let value = event.target.value.replace(/\D/g, '');
+
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+
+            event.target.value = value;
+        }
+
+        // تحديث عرض البطاقة
+        function updateCardDisplay() {
+            const cardHolder = document.getElementById('cardHolder').value || 'محمد أحمد';
+            const cardNumber = document.getElementById('cardNumber').value || '**** **** **** 1234';
+            const cardExpiry = document.getElementById('cardExpiry').value || '05/27';
+
+            document.getElementById('cardHolderDisplay').textContent = cardHolder;
+            document.getElementById('cardNumberDisplay').textContent = cardNumber;
+            document.getElementById('cardExpiryDisplay').textContent = cardExpiry;
+        }
+
+        // معالجة الدفع
+        function processPayment() {
+            // التحقق من صحة البيانات
+            if (!validatePaymentForm()) {
+                return;
+            }
+
+            // الانتقال إلى قسم الإيصال
+            document.getElementById('paymentSection').classList.add('hidden');
+            document.getElementById('receiptSection').classList.remove('hidden');
+
+            updateStep(3);
+
+            // محاكاة اتصال بالبنك
+            simulateBankConnection();
+        }
+
+        // التحقق من نموذج الدفع
+        function validatePaymentForm() {
+            const cardHolder = document.getElementById('cardHolder').value.trim();
+            const cardNumber = document.getElementById('cardNumber').value.trim();
+            const cardExpiry = document.getElementById('cardExpiry').value.trim();
+            const cardCVC = document.getElementById('cardCVC').value.trim();
+
+            if (!cardHolder) {
+                showMessage('يرجى إدخال اسم حامل البطاقة', 'error');
+                return false;
+            }
+
+            if (!cardNumber || cardNumber.replace(/\s/g, '').length < 16) {
+                showMessage('يرجى إدخال رقم بطاقة صحيح', 'error');
+                return false;
+            }
+
+            if (!cardExpiry || !/^\d{2}\/\d{2}$/.test(cardExpiry)) {
+                showMessage('يرجى إدخال تاريخ انتهاء صحيح (MM/YY)', 'error');
+                return false;
+            }
+
+            const [month, year] = cardExpiry.split('/').map(Number);
+            const currentYear = new Date().getFullYear() % 100;
+            const currentMonth = new Date().getMonth() + 1;
+
+            if (month < 1 || month > 12) {
+                showMessage('شهر البطاقة غير صحيح', 'error');
+                return false;
+            }
+
+            if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                showMessage('البطاقة منتهية الصلاحية', 'error');
+                return false;
+            }
+
+            if (!cardCVC || cardCVC.length !== 3 || !/^\d+$/.test(cardCVC)) {
+                showMessage('يرجى إدخال رمز أمان صحيح (3 أرقام)', 'error');
+                return false;
+            }
+
+            return true;
+        }
+
+        // محاكاة اتصال البنك
+        function simulateBankConnection() {
+            setTimeout(() => {
+                // محاكاة نجاح الدفع في 80% من الحالات
+                const isSuccess = Math.random() < 0.8;
+
+                if (isSuccess) {
+                    completePaymentSuccess();
+                } else {
+                    simulatePaymentFailure();
+                }
+            }, 3000);
+        }
+
+        // إكمال الدفع بنجاح
+        function completePaymentSuccess() {
+            document.getElementById('paymentProcessing').classList.add('hidden');
+            document.getElementById('paymentReceipt').classList.remove('hidden');
+
+            // إنشاء إيصال الدفع
+            generateReceipt();
+
+            updateStep(4);
+            showMessage('تمت عملية الدفع بنجاح!', 'success');
+
+            // حفظ حالة الدفع
+            appState.paymentStatus = 'completed';
+        }
+
+        // محاكاة فشل الدفع
+        function simulatePaymentFailure() {
+            document.getElementById('paymentProcessing').classList.add('hidden');
+
+            // عرض رسالة فشل
+            const receiptSection = document.getElementById('receiptSection');
+            const failureHTML = `
+                <div class="message error" style="margin: 20px 0;">
+                    <h3><i class="fas fa-times-circle"></i> فشل عملية الدفع</h3>
+                    <p>تعذر اكتمال عملية الدفع. يرجى التحقق من بيانات البطاقة والمحاولة مرة أخرى.</p>
+                    <p>الأسباب المحتملة: رصيد غير كافي، بيانات غير صحيحة، أو رفض من البنك.</p>
+                </div>
+                <div class="actions" style="margin-top: 30px;">
+                    <button class="btn btn-warning" id="backToPaymentBtn">
+                        <i class="fas fa-arrow-right"></i> العودة إلى الدفع
+                    </button>
+                    <button class="btn" id="backToSearchFromFailureBtn">
+                        <i class="fas fa-search"></i> بحث جديد
+                    </button>
+                </div>
+            `;
+
+            receiptSection.innerHTML += failureHTML;
+
+            // إضافة مستمعي الأحداث للأزرار الجديدة
+            document.getElementById('backToPaymentBtn').addEventListener('click', () => {
+                document.getElementById('receiptSection').classList.add('hidden');
+                document.getElementById('paymentSection').classList.remove('hidden');
+                updateStep(2);
+            });
+
+            document.getElementById('backToSearchFromFailureBtn').addEventListener('click', resetForm);
+
+            // حفظ حالة الدفع
+            appState.paymentStatus = 'failed';
+            showMessage('فشلت عملية الدفع. يرجى المحاولة مرة أخرى.', 'error');
+        }
+
+        // إنشاء إيصال الدفع
+        function generateReceipt() {
+            const receiptDate = new Date();
+            const receiptNumber = 'RCPT' + Date.now().toString().substring(7);
+
+            document.getElementById('receiptDate').textContent = receiptDate.toLocaleDateString('ar-SA');
+            document.getElementById('receiptNumber').textContent = `رقم الإيصال: ${receiptNumber}`;
+
+            let receiptDetailsHTML = '';
+            let totalAmount = 0;
+
+            appState.selectedViolations.forEach((violation, index) => {
+                totalAmount += violation.amount;
+
+                receiptDetailsHTML += `
+                    <div class="receipt-row">
+                        <span>${violation.type}</span>
+                        <span>${violation.amount} جنيه</span>
+                    </div>
+                `;
+            });
+
+            receiptDetailsHTML += `
+                <div class="receipt-row">
+                    <span>رسوم الخدمة</span>
+                    <span>10 جنيه</span>
+                </div>
+                <div class="receipt-row total">
+                    <span>المبلغ الإجمالي</span>
+                    <span>${totalAmount + 10} جنيه</span>
+                </div>
+            `;
+
+            document.getElementById('receiptDetails').innerHTML = receiptDetailsHTML;
+
+            // حفظ بيانات الإيصال
+            appState.receiptData = {
+                number: receiptNumber,
+                date: receiptDate.toLocaleDateString('ar-SA'),
+                time: receiptDate.toLocaleTimeString('ar-SA'),
+                amount: totalAmount + 10,
+                violations: appState.selectedViolations.length
+            };
+        }
+
+        // طباعة الإيصال
+        function printReceipt() {
+            const receiptContent = document.getElementById('paymentReceipt').innerHTML;
+            const originalContent = document.body.innerHTML;
+
+            document.body.innerHTML = `
+                <div style="padding: 20px; font-family: Arial, sans-serif;">
+                    ${receiptContent}
+                </div>
+                <script>
+                    window.print();
+                    setTimeout(() => {
+                        document.body.innerHTML = originalContent;
+                        window.location.reload();
+                    }, 1000);
+                <\/script>
+            `;
+        }
+
+        // إعادة تعيين النموذج لبدء عملية جديدة
+        function resetForm() {
+            // إعادة تعيين الحقول
+            document.getElementById('violationNumber').value = '';
+            document.getElementById('vehiclePlate').value = '';
+            document.getElementById('nationalId').value = '';
+            document.getElementById('cardHolder').value = '';
+            document.getElementById('cardNumber').value = '';
+            document.getElementById('cardExpiry').value = '';
+            document.getElementById('cardCVC').value = '';
+
+            // إخفاء الأقسام
+            document.getElementById('violationDetails').classList.add('hidden');
+            document.getElementById('paymentSection').classList.add('hidden');
+            document.getElementById('receiptSection').classList.add('hidden');
+
+            // إظهار قسم البحث
+            document.getElementById('violationSearchSection').classList.remove('hidden');
+
+            // إعادة تعيين الخطوات
+            updateStep(1);
+
+            // إعادة تعيين حالة التطبيق
+            appState = {
+                currentStep: 1,
+                selectedViolations: [],
+                paymentMethod: 'credit',
+                paymentAmount: 0,
+                paymentStatus: 'pending',
+                receiptData: null
+            };
+
+            // إعادة تعيين طرق الدفع
+            document.querySelectorAll('.payment-method').forEach((method, index) => {
+                method.classList.remove('active');
+                if (index === 0) method.classList.add('active');
+            });
+
+            // إعادة تعيين عرض البطاقة
+            updateCardDisplay();
+
+            showMessage('يمكنك الآن بدء عملية دفع جديدة', 'info');
+        }
+
+        // تحديث الخطوات
+        function updateStep(stepNumber) {
+            // إعادة تعيين جميع الخطوات
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active', 'completed');
+            });
+
+            // تحديث الخطوات بناءً على الرقم
+            for (let i = 1; i <= stepNumber; i++) {
+                const stepElement = document.getElementById(`step${i}`);
+                if (i < stepNumber) {
+                    stepElement.classList.add('completed');
+                } else {
+                    stepElement.classList.add('active');
+                }
+            }
+
+            appState.currentStep = stepNumber;
+        }
+
+        // عرض الرسائل
+        function showMessage(message, type = 'info') {
+            const messageElement = document.getElementById('systemMessage');
+            messageElement.textContent = message;
+            messageElement.className = `message ${type}`;
+            messageElement.classList.remove('hidden');
+
+            // إخفاء الرسالة بعد 5 ثوانٍ (إلا إذا كانت رسالة خطأ)
+            if (type !== 'error') {
+                setTimeout(() => {
+                    messageElement.classList.add('hidden');
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+
+</html>

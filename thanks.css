@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #111827, #020617);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+/* ===== الدائرة ===== */
+.circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #22d3ee, #6366f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: bold;
+    box-shadow: 0 0 60px rgba(99, 102, 241, 0.6);
+    animation: pulse 2s infinite;
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+/* ===== النص ===== */
+.message {
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.message h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.message p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #c7d2fe;
+    max-width: 520px;
+}
+p{
+    color: #22d3ee;
+    border: 2px inset blue;
+}
+b{
+    color: blue;
+}
+b:hover{
+    color: #020617;
+    border: 3px inset skyblue;
+}
+/* ===== حركة نبض خفيفة ===== */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== حالات التفعيل ===== */
+.fade-out {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.show-text {
+    opacity: 1;
+    transform: translateY(0);
+}

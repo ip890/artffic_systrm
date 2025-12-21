@@ -1,0 +1,197 @@
+/* ===== ملف تنسيق نموذج إنشاء مستخدم أولي ===== */
+
+/* إعدادات أساسية للصفحة */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* تنسيق العنوان الرئيسي */
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    width: 100%;
+    max-width: 500px;
+    font-size: 1.8em;
+}
+
+/* تنسيق النموذج الرئيسي */
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-5px);
+}
+
+/* تنسيق جميع حقول الإدخال والقوائم المنسدلة */
+input,
+select,
+button {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+/* تأثير التركيز على الحقول */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    background-color: #fff;
+}
+
+/* تنسيق النصوص التوضيحية داخل الحقول */
+::placeholder {
+    color: #888;
+    opacity: 1;
+}
+
+/* تنسيق خاص للحقول المطلوبة */
+input:required,
+select:required {
+    border-right: 3px solid #3498db;
+}
+
+/* تنسيق القوائم المنسدلة */
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: left 14px center;
+    background-size: 16px;
+    padding-right: 14px;
+}
+
+/* تنسيق زر الحفظ */
+button {
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    padding: 16px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #2980b9, #1a252f);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* تأثيرات خاصة للعناصر */
+input[type="password"] {
+    letter-spacing: 2px;
+}
+
+/* تنسيق للعناصر النشطة وغير النشطة */
+#is_active option[value="1"] {
+    color: green;
+    font-weight: bold;
+}
+
+#is_active option[value="0"] {
+    color: #e74c3c;
+}
+
+/* تخصيص شريط التمرير */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* تصميم متجاوب للشاشات الصغيرة */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    input,
+    select,
+    button {
+        padding: 12px;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+}
+
+/* تأثيرات للوضع الليلي (Dark Mode) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+        color: #ecf0f1;
+    }
+
+    form {
+        background-color: #34495e;
+        color: #ecf0f1;
+    }
+
+    input,
+    select {
+        background-color: #2c3e50;
+        border-color: #4a6572;
+        color: #ecf0f1;
+    }
+
+    ::placeholder {
+        color: #bdc3c7;
+    }
+}

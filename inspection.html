@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نقاط التفتيش</title>
+     <!--style-->
+     <link rel="stylesheet" href="inspection.css">
+    <link rel="stylesheet" href="active.css">
+    <script src="active.js"></script>
+</head>
+<body>
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="/img/images.png" alt="شعار" class="logo-img">
+            <span class="logo-text">إدارة المرور</span>
+        </div>
+    
+        <ul class="menu">
+    
+            <li><a href="posss.html"><i class="icon">🏠</i><span>الرئيسية</span></a></li>
+            <li><a href="index.html"><i class="icon">📊</i><span>لوحة التحكم</span></a></li>
+            <li><a href="cars.html"><i class="icon">🚗</i><span>المركبات</span></a></li>
+            <li><a href="add-vechicle.html"><i class="icon">📄</i><span>تسجيل مركبة جديدة</span></a></li>
+            <li><a href=""><i class="icon">⚠️</i><span>المخالفات</span></a></li>
+            <li><a href="#"><i class="icon">📊</i><span>تحليلات البيانات</span></a></li>
+            <li><a href="#"><i class="icon">🧍‍♂️</i><span>المستخدمين</span></a></li>
+            <li><a href="#"><i class="icon">📁</i><span>إدارة الملفات</span></a></li>
+            <li><a href="#"><i class="icon">📍</i><span>نقاط التفتيش</span></a></li>
+    
+    
+            <!-- الصفحات الجديدة -->
+            <li><a href="#"><i class="icon">📈</i><span>الاحصائيات</span></a></li>
+            <li><a href="#"><i class="icon">🗺️</i><span>الخرائط</span></a></li>
+            <li><a href="#"><i class="icon">⚡</i><span>التنبؤات</span></a></li>
+            <li><a href="#"><i class="icon">⚡</i><span> لإعداد ت<span></a></li>
+            <li><a href="#"><i class="icon">🎥</i><span>كاميرات المراقبة</span></a></li>
+            <li class="icon-aut"><a href="#"><i class="icon">🔐</i><span>تسجيل لخروج</span></a></li>
+        </ul>
+    </aside>
+    
+    <!-- ============ MAIN CONTENT ============ -->
+    <section class="main">
+    
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="left-nav">
+                <span class="title">نظام المرور الذكي</span>
+                <span class="date">مارس 2029</span>
+            </div>
+    
+            <div class="right-nav">
+                <i class="notify">🔔</i>
+            </div>
+        </nav>
+        <section class="stats-page">
+
+            <section class="checkpoints-page">
+            
+                <!-- Header -->
+                <div class="page-header">
+                    <h2>🚧 إدارة نقاط التفتيش الذكية</h2>
+                    <button class="ai-btn">🧠 تحليل فوري</button>
+                </div>
+            
+                <!-- Live KPIs -->
+                <div class="checkpoint-kpis">
+                    <div class="kpi">
+                        <h4>نقاط نشطة</h4>
+                        <span class="num" data-target="12">0</span>
+                    </div>
+                    <div class="kpi warning">
+                        <h4>نقاط مزدحمة</h4>
+                        <span class="num" data-target="4">0</span>
+                    </div>
+                    <div class="kpi danger">
+                        <h4>نقاط عالية الخطورة</h4>
+                        <span class="num" data-target="2">0</span>
+                    </div>
+                    <div class="kpi ai">
+                        <h4>توقع الذروة</h4>
+                        <span>⏱ خلال 45 دقيقة</span>
+                    </div>
+                </div>
+            
+                <!-- Map + Control -->
+                <div class="map-section">
+                    <div class="map-placeholder">
+                        🗺 خريطة نقاط التفتيش التفاعلية
+                        <span class="pulse"></span>
+                    </div>
+            
+                    <div class="map-actions">
+                        <button>🚔 إرسال دورية</button>
+                        <button>📍 تحديد منطقة خطر</button>
+                        <button>📡 ربط كاميرات</button>
+                    </div>
+                </div>
+            
+                <!-- Checkpoints Table -->
+                <div class="table-card">
+                    <h3>📋 قائمة نقاط التفتيش</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>النقطة</th>
+                                <th>الموقع</th>
+                                <th>الحالة</th>
+                                <th>الضغط</th>
+                                <th>إجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>نقطة النيل</td>
+                                <td>شارع النيل</td>
+                                <td class="active">🟢 نشطة</td>
+                                <td>منخفض</td>
+                                <td><button class="small">تحكم</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>نقطة المطار</td>
+                                <td>طريق المطار</td>
+                                <td class="busy">🟡 مزدحمة</td>
+                                <td>مرتفع</td>
+                                <td><button class="small">تحكم</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>نقطة الكبري</td>
+                                <td>الكبري</td>
+                                <td class="danger">🔴 خطر</td>
+                                <td>حرج</td>
+                                <td><button class="small danger">إرسال دعم</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <!-- AI Insights -->
+                <div class="ai-insights">
+                    <h3>🤖 توصيات ذكية</h3>
+                    <ul>
+                        <li>🚨 زيادة الدوريات عند نقطة الكبري خلال ساعة</li>
+                        <li>📈 توقع ازدحام المطار بعد 6 مساءً</li>
+                        <li>🛑 اقتراح نقطة تفتيش مؤقتة بطريق الصحافة</li>
+                    </ul>
+            
+                    <div class="ai-actions">
+                        <button>✅ تنفيذ الكل</button>
+                        <button>✏ تعديل</button>
+                    </div>
+                </div>
+            
+            </section>
+<script src="inspection.js"></script>              
+</body>
+</html>

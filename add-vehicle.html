@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل مركبة جديدة</title>
+    <link rel="stylesheet" href="add-vehicle.css">
+        <link rel="stylesheet" href="active.css">
+      <script src="active.js"></script>
+</head>
+<body>
+
+    <!-- SIDEBAR  -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="/img/images.png" class="logo-img">
+            <span class="logo-text">إدارة المرور</span>
+        </div>
+
+        <ul class="menu">
+            <li><a href="posss.html"><i>🏠</i><span>الرئيسية</span></a></li>
+            <li><a href="index.html"><i>📊</i><span>لوحة التحكم</span></a></li>
+            <li><a href="cars.html"><i>🚗</i><span>المركبات</span></a></li>
+            <li><a href="add.vehicle.html"><i>📄</i><span>تسجيل مركبة جديدة</span></a></li>
+            <li><a href="violations.html"><i>⚠️</i><span>المخالفات</span></a></li>
+            <li><a href="analysis.html"><i>📊</i><span>تحليلات البيانات</span></a></li>
+            <li><a href="user.html"><i>🧍‍♂️</i><span>المستخدمين</span></a></li>
+            <li><a href="fills.html"><i>📁</i><span>إدارة الملفات</span></a></li>
+            <li><a href="inspection.html"><i>📍</i><span>نقاط التفتيش</span></a></li>
+
+            <!-- الصفحات الجديدة -->
+            <li><a href="statistics.html"><i>📈</i><span>الإحصائيات</span></a></li>
+            <li><a href="map.html"><i>🗺️</i><span>الخرائط</span></a></li>
+            <li><a href="prediction.html"><i>⚡</i><span>التنبؤات</span></a></li>
+             <li><a href="stting.html"><i class="icon">⚡</i><span> لإعداد ت<span></a></li>
+            <li><a href="camera.html"><i>🎥</i><span>كاميرات المراقبة</span></a></li>
+            <li class="logout"><a href="login.html"><i>🔐</i><span>تسجيل الخروج</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <section class="main">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <h2>تسجيل مركبة جديدة</h2>
+        </nav>
+
+        <!-- FORM CARD -->
+        <div class="form-card">
+
+            <form id="vehicleForm">
+
+                <h3>🚗 بيانات المركبة</h3>
+
+                <div class="row">
+                    <input type="text" id="plate" placeholder="رقم اللوحة" required>
+                    <select id="type" required>
+                        <option value="">نوع المركبة</option>
+                        <option>سيارة</option>
+                        <option>شاحنة</option>
+                        <option>دراجة</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <input type="text" id="color" placeholder="لون المركبة" required>
+                    <input type="text" id="model" placeholder="الموديل / السنة">
+                </div>
+
+                <h3>🧍‍♂️ بيانات المالك</h3>
+
+                <div class="row">
+                    <input type="text" id="owner" placeholder="اسم المالك" required>
+                    <input type="text" id="phone" placeholder="رقم الهاتف">
+                </div>
+
+                <h3>⚙️ حالة المركبة</h3>
+
+                <div class="row">
+                    <select id="status" required>
+                        <option value="">حالة الترخيص</option>
+                        <option>سارية</option>
+                        <option>منتهية</option>
+                        <option>موقوفة</option>
+                    </select>
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="actions">
+                    <button type="submit" class="btn primary">تسجيل المركبة</button>
+                    <button type="button" class="btn cancel" id="cancelBtn">إلغاء</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <script src="add-vehicle.js"></script>
+</body>
+</html>

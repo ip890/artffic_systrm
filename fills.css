@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f5f6fa;
+    display: flex;
+}
+
+
+
+/* SIDEBAR */
+.sidebar {
+    width: 70px;
+    background: #1e1e2d;
+    color: #fff;
+    padding-top: 20px;
+    transition: 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.sidebar:hover,
+.icon-aut {
+    width: 230px;
+}
+
+.icon-aut {
+    width: 70px;
+    background: #1e1e2d;
+    color: #fff;
+    padding-top: 20px;
+    transition: 0.3s;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.logo-text {
+    margin-right: 10px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sidebar:hover .logo-text {
+    opacity: 1;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.menu li {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #27293d;
+}
+
+.menu a {
+    display: flex;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+}
+
+.icon {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.menu li span {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sidebar:hover .menu li span {
+    opacity: 1;
+}
+
+/* MAIN */
+.main {
+    width: 100%;
+    padding: 20px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.date {
+    color: gray;
+}
+
+.notify {
+    font-size: 22px;
+    cursor: pointer;
+}
+.files-page {
+    padding: 24px;
+    color: #fff;
+}
+
+/* Header */
+.files-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    color: #000;
+}
+
+.files-header h2 {
+    font-size: 22px;
+}
+
+.files-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.files-actions input {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background: #1e1e2e;
+    color: #fff;
+}
+
+.upload-btn {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Grid */
+.files-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    color: #000;
+}
+
+/* Card */
+.file-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 20px;
+    transition: 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.file-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 255, 200, 0.15);
+}
+
+.file-icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+/* Tags */
+.file-tags {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.tag {
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+.tag.ai {
+    background: #7f00ff;
+}
+
+.tag.high {
+    background: #ff3b3b;
+}
+
+.tag.medium {
+    background: #ffcc00;
+}
+
+/* Buttons */
+.file-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.file-buttons button {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.view {
+    background: #2d2d44;
+    color: #fff;
+}
+
+.send {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: #002;
+}

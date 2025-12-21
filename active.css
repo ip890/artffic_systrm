@@ -1,0 +1,23 @@
+/* activ*/
+.menu a.active {
+    background: #1f1f1f;
+    color: #fff;
+    border-right: 4px solid #fff;
+}
+/* API Warning Banner */
+.api-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #b91c1c;
+    /* أحمر تحذيري */
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

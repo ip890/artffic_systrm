@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إدارة المستخدمين | آمنة</title>
+    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="active.css">
+    <script src="active.js"></script>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <h2>🚔 المرور الذكي</h2>
+    <ul>
+        <li>🏠 الرئيسية</li>
+        <li class="active">👥 المستخدمين</li>
+        <li>⚠️ المخالفات</li>
+        <li>📊 التحليلات</li>
+        <li>⚙️ الإعدادات</li>
+    </ul>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- NAV -->
+    <nav class="navbar">
+        <span>👥 إدارة المستخدمين والصلاحيات</span>
+        <span class="role-badge" id="currentRole"></span>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+        <!-- USERS TABLE -->
+        <table>
+            <thead>
+                <tr>
+                    <th>الاسم</th>
+                    <th>الدور</th>
+                    <th>الحالة</th>
+                    <th>آخر نشاط</th>
+                    <th>إجراءات</th>
+                </tr>
+            </thead>
+            <tbody id="usersTable">
+                <tr data-role="Supervisor">
+                    <td>أحمد علي</td>
+                    <td>مشرف</td>
+                    <td class="active">نشط</td>
+                    <td>قبل 5 دقائق</td>
+                    <td>
+                        <button class="edit">✏️</button>
+                        <button class="lock">🔒</button>
+                        <button class="delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr data-role="Operator">
+                    <td>محمد حسن</td>
+                    <td>موظف</td>
+                    <td class="locked">موقوف</td>
+                    <td>أمس</td>
+                    <td>
+                        <button class="edit">✏️</button>
+                        <button class="unlock">🔓</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+</div>
+
+<script src="user.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المركبات | نظام الإدارة الذكي</title>
+  <link rel="stylesheet" href="cars.css">
+  <link rel="stylesheet" href="active.css">
+  <script src="active.js"></script>
+</head>
+
+<body>
+
+  <!-- ====== ADD VEHICLE MODAL ====== -->
+  <div class="modal" id="vehicleModal">
+    <div class="modal-content">
+      <h2>➕ إضافة مركبة جديدة</h2>
+
+      <form id="vehicleForm">
+        <div class="form-group">
+          <label>رقم اللوحة</label>
+          <input type="text" required>
+        </div>
+
+        <div class="form-group">
+          <label>اسم المالك</label>
+          <input type="text" required>
+        </div>
+
+        <div class="form-group">
+          <label>نوع المركبة</label>
+          <select required>
+            <option value="">اختر النوع</option>
+            <option>سيارة</option>
+            <option>شاحنة</option>
+            <option>دراجة</option>
+            <option>حافلة</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>لون المركبة</label>
+          <input type="text">
+        </div>
+
+        <div class="form-group">
+          <label>حالة الترخيص</label>
+          <select>
+            <option>سارية</option>
+            <option>منتهية</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="save">حفظ</button>
+          <button type="button" class="cancel" id="closeModal">إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar">
+    <div class="logo">🚦 نظام الإدارة الذكي</div>
+    <div class="user-box">مرحبا، المستخدم</div>
+  </nav>
+
+  <!-- ====== SIDEBAR ====== -->
+  <aside class="sidebar">
+    <ul class="menu">
+      <a href="posss.html">
+        <li>🏠 الرئيسية</li>
+      </a>
+      <a href="index.html">
+        <li>📊 لوحة التحكم</li>
+      </a>
+      <a href="analysis.html">
+        <li>📁 تحليلات البيانات</li>
+      </a>
+      <a href="cars.html" class="active">
+        <li>🚗 المركبات</li>
+      </a>
+      <a href="">
+        <li>⚠️ المخالفات</li>
+      </a>
+      <a href="user.html">
+        <li>🧍‍♂️ المستخدمين</li>
+      </a>
+      <a href="fills.html">
+        <li>📁 إدارة الملفات</li>
+      </a>
+      <a href="">
+        <li>📍 نقاط التفتيش</li>
+      </a>
+      <a href="camera.html">
+        <li>🎥 كاميرات المراقبة</li>
+      </a>
+      <a href="stting.html">
+        <li>🔧 الإعدادات</li>
+      </a>
+      <a href="login.html">
+        <li>🔐 تسجيل الخروج</li>
+      </a>
+    </ul>
+  </aside>
+
+  <!-- ====== MAIN CONTENT ====== -->
+  <main class="content">
+
+    <h1 class="page-title">إدارة المركبات</h1>
+
+    <!-- ====== TOP CARDS ====== -->
+    <div class="cards">
+      <div class="card">
+        <h3>إجمالي المركبات</h3>
+        <p class="num">324</p>
+      </div>
+
+      <div class="card">
+        <h3>المركبات غير المجددة</h3>
+        <p class="num red">89</p>
+      </div>
+
+      <div class="card">
+        <h3>المركبات المضافة هذا الشهر</h3>
+        <p class="num">27</p>
+      </div>
+    </div>
+
+    <!-- ====== SEARCH + BUTTON ====== -->
+    <div class="actions">
+      <input type="text" id="searchInput" placeholder="🔍 ابحث عن مركبة عبر الرقم أو النوع...">
+      <button class="add-btn">+ إضافة مركبة</button>
+    </div>
+
+    <!-- ====== VEHICLES TABLE ====== -->
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>رقم اللوحة</th>
+            <th>المالك</th>
+            <th>النوع</th>
+            <th>اللون</th>
+            <th>الحالة</th>
+            <th>الإجراءات</th>
+          </tr>
+        </thead>
+        <tbody id="vehicleTable">
+          <tr>
+            <td>5482 – خ</td>
+            <td>أحمد علي</td>
+            <td>تويوتا كورولا</td>
+            <td>أبيض</td>
+            <td><span class="status ok">سارية</span></td>
+            <td>
+              <button class="edit">تعديل</button>
+              <button class="delete">حذف</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>9981 – ن</td>
+            <td>سعاد عمر</td>
+            <td>هيونداي أكسنت</td>
+            <td>أسود</td>
+            <td><span class="status late">منتهية</span></td>
+            <td>
+              <button class="edit">تعديل</button>
+              <button class="delete">حذف</button>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <script src="cars.js"></script>
+</body>
+
+</html>

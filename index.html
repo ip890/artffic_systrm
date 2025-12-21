@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>نظام المرور الذكي</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="active.css">
+      <script src="active.js"></script>
+</head>
+
+<body>
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="/img/images.png" alt="شعار" class="logo-img"> 
+            <span class="logo-text">إدارة المرور</span>
+        </div>
+
+        <ul class="menu">
+
+            <li><a href="posss.html"><i class="icon">🏠</i><span>الرئيسية</span></a></li>
+            <li><a href=""><i class="icon">📊</i><span>لوحة التحكم</span></a></li>
+            <li><a href=""><i class="icon">🚗</i><span>المركبات</span></a></li>
+            <li><a href="#"><i class="icon">📄</i><span>تسجيل مركبة جديدة</span></a></li>
+            <li><a href="#"><i class="icon">⚠️</i><span>المخالفات</span></a></li>
+            <li><a href="#"><i class="icon">📊</i><span>تحليلات البيانات</span></a></li>
+            <li><a href="#"><i class="icon">🧍‍♂️</i><span>المستخدمين</span></a></li>
+            <li><a href="#"><i class="icon">📁</i><span>إدارة الملفات</span></a></li>
+            <li><a href="#"><i class="icon">📍</i><span>نقاط التفتيش</span></a></li>
+           
+
+            <!-- الصفحات الجديدة -->
+            <li><a href="#"><i class="icon">📈</i><span>الاحصائيات</span></a></li>
+            <li><a href="#"><i class="icon">🗺️</i><span>الخرائط</span></a></li>
+            <li><a href="#"><i class="icon">⚡</i><span>التنبؤات</span></a></li>
+            <li><a href="#"><i class="icon">⚡</i><span><لإعداد <span></a></li>
+            <li><a href="#"><i class="icon">🎥</i><span>كاميرات المراقبة</span></a></li>
+            <li class="icon-aut"><a href="#"><i class="icon">🔐</i><span>تسجيل لخروج</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <section class="main">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="left-nav">
+                <span class="title">نظام المرور الذكي</span>
+                <span class="date">مارس 2029</span>
+            </div>
+
+            <div class="right-nav">
+                <i class="notify">🔔</i>
+            </div>
+        </nav>
+
+        <!-- PAGE TITLE <-->
+           <div class="content">
+
+        <h2>📊 لوحة التحكم - تحليل المرور</h2>
+
+        <!-- مربعات الإحصائيات -->
+        <div class="stats-boxes">
+            <div class="box">عدد المركبات اليوم <br><b>342</b></div>
+            <div class="box">مخالفات اليوم <br><b>28</b></div>
+            <div class="box">الحالات الحرجة <br><b>4</b></div>
+            <div class="box">عدد المستخدمين <br><b>1560</b></div>
+        </div>
+
+    </div>
+        
+        
+        <h2 class="section-title">الإحصائيات اليومية</h2>
+
+        <!-- DAILY STATS GRAPHS -->
+        <div class="charts-row">
+            <canvas id="daily1"></canvas>
+            <canvas id="daily2"></canvas>
+        </div>
+
+        <!-- BUTTONS BELOW DAILY CHARTS -->
+        <div class="button-row">
+            <button class="btn">التواصل مع الدوريات</button>
+            <button class="btn">مشاهدة الكاميرات</button>
+        </div>
+
+        <!-- PREVIOUS STATS TITLE -->
+        <h2 class="section-title">الإحصائيات السابقة</h2>
+
+        <!-- PREVIOUS GRAPHS -->
+        <div class="charts-row">
+            <canvas id="prev1"></canvas>
+            <canvas id="prev2"></canvas>
+        </div>
+
+        <div class="more-info">
+            <a href="#">اضغط هنا للحصول على مزيد من المعلومات</a>
+        </div>
+
+    </section>
+
+    <script src="ss.js"></script>
+</body>
+</html>

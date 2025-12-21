@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه الاحصائيات</title>
+    <!--style-->
+    <link rel="stylesheet" href="statistic.css">
+        <link rel="stylesheet" href="active.css">
+      <script src="active.js"></script>
+</head>
+
+<body>
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="" alt="شعار" class="logo-img">
+            <span class="logo-text">إدارة المرور</span>
+        </div>
+
+        <ul class="menu">
+
+            <li><a href="#"><i class="icon">🏠</i><span>الرئيسية</span></a></li>
+            <li><a href=""><i class="icon">📊</i><span>لوحة التحكم</span></a></li>
+            <li><a href="#"><i class="icon">🚗</i><span>المركبات</span></a></li>
+            <li><a href="#"><i class="icon">📄</i><span>تسجيل مركبة جديدة</span></a></li>
+            <li><a href="#"><i class="icon">⚠️</i><span>المخالفات</span></a></li>
+            <li><a href="#"><i class="icon">📊</i><span>تحليلات البيانات</span></a></li>
+            <li><a href="#"><i class="icon">🧍‍♂️</i><span>المستخدمين</span></a></li>
+            <li><a href="#"><i class="icon">📁</i><span>إدارة الملفات</span></a></li>
+            <li><a href="#"><i class="icon">📍</i><span>نقاط التفتيش</span></a></li>
+
+
+            <!-- الصفحات الجديدة -->
+            <li><a href="#"><i class="icon">📈</i><span>الاحصائيات</span></a></li>
+            <li><a href="#"><i class="icon">🗺️</i><span>الخرائط</span></a></li>
+            <li><a href="#"><i class="icon">⚡</i><span>التنبؤات</span></a></li>
+            <li><a href="#"><i class="icon">⚡</i><span> لإعداد ت<span></a></li>
+            <li><a href="#"><i class="icon">🎥</i><span>كاميرات المراقبة</span></a></li>
+            <li class="icon-aut"><a href="#"><i class="icon">🔐</i><span>تسجيل لخروج</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <section class="main">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="left-nav">
+                <span class="title">نظام المرور الذكي</span>
+                <span class="date">مارس 2029</span>
+            </div>
+
+            <div class="right-nav">
+                <i class="notify">🔔</i>
+            </div>
+        </nav>
+        <section class="stats-page">
+
+            <!-- Header -->
+            <div class="stats-header">
+                <h2>📊 لوحة الإحصائيات الذكية</h2>
+
+                <div class="time-filter">
+                    <select id="timeRange">
+                        <option value="day">📅 اليوم</option>
+                        <option value="week">📆 الأسبوع</option>
+                        <option value="month">🗓 الشهر</option>
+                        <option value="year">📈 السنة</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+                    <h4>إجمالي المخالفات</h4>
+                    <span class="kpi-number" data-target="1240">0</span>
+                    <p class="up">⬆ +12%</p>
+                </div>
+
+                <div class="kpi-card">
+                    <h4>مناطق عالية الخطورة</h4>
+                    <span class="kpi-number" data-target="8">0</span>
+                    <p class="down">⬇ -3%</p>
+                </div>
+
+                <div class="kpi-card">
+                    <h4>كاميرات نشطة</h4>
+                    <span class="kpi-number" data-target="56">0</span>
+                    <p>🟢 نشطة</p>
+                </div>
+
+                <div class="kpi-card ai">
+                    <h4>توقعات الذكاء</h4>
+                    <span>📈 ارتفاع خلال الذروة</span>
+                </div>
+
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+
+                <div class="chart-card">
+                    <h4>📈 تطور المخالفات</h4>
+                    <canvas id="violationsChart"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <h4>🍩 أنواع المخالفات</h4>
+                    <canvas id="typesChart"></canvas>
+                </div>
+
+            </div>
+
+            <!-- Insights -->
+            <div class="insights-card">
+                <h3>💡 رؤى ذكية</h3>
+                <ul>
+                    <li>🚔 أعلى مخالفات بين 7 – 9 صباحًا</li>
+                    <li>📍 طريق الملك فهد الأكثر خطورة</li>
+                    <li>📉 انخفاض السرعة الزائدة في عطلة نهاية الأسبوع</li>
+                </ul>
+            </div>
+
+        </section>
+
+<script src="statistic.js"></script>
+</body>
+
+</html>

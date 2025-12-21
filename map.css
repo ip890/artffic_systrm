@@ -1,0 +1,299 @@
+:root {
+    --bg: #0f172a;
+    --panel: #111827;
+    --primary: #38bdf8;
+    --danger: #ef4444;
+    --warning: #facc15;
+    --success: #22c55e;
+    --text: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    background: var(--panel);
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+    background: var(--primary);
+    color: #000;
+}
+
+/* MAIN */
+.main {
+    margin-right: 240px;
+    width: calc(100% - 240px);
+}
+
+/* NAVBAR */
+.navbar {
+    background: #020617;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+/* CONTROLS */
+.controls {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* MAP */
+.map-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 20px;
+    gap: 20px;
+}
+
+.map {
+    position: relative;
+    height: 450px;
+    background: #020617;
+    border-radius: 16px;
+}
+
+/* ZONES */
+.zone {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+.high {
+    background: var(--danger);
+    top: 80px;
+    right: 100px;
+}
+
+.medium {
+    background: var(--warning);
+    top: 200px;
+    right: 250px;
+}
+
+.low {
+    background: var(--success);
+    top: 300px;
+    right: 150px;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+/* INFO PANEL */
+.info-panel {
+    background: var(--panel);
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.ai-insights {
+    margin-top: 40px;
+    padding: 25px;
+    background: radial-gradient(circle at top, #020617, #020617cc);
+    border-radius: 20px;
+}
+
+.ai-title {
+    margin-bottom: 20px;
+    color: #38bdf8;
+    text-shadow: 0 0 10px #38bdf855;
+}
+
+/* GRID */
+.ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.ai-card {
+    position: relative;
+    background: linear-gradient(145deg, #020617, #020617);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: inset 0 0 20px #38bdf822;
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.ai-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 0 30px #38bdf855;
+}
+
+.ai-label {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.ai-value {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ai-percent {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 22px;
+    opacity: .8;
+}
+
+/* STATES */
+.danger {
+    color: #ef4444;
+}
+
+.warning {
+    color: #facc15;
+}
+
+.primary {
+    color: #38bdf8;
+}
+
+.success {
+    color: #22c55e;
+}
+
+/* NETWORK */
+.ai-network {
+    margin-top: 30px;
+    height: 220px;
+    background: #020617;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.ai-network canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/*btn style*/
+/* ===== MAP CONTAINER ===== */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    /* أو height الخريطة لديك */
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* ===== ACTION BUTTONS UNDER MAP ===== */
+.map-actions {
+    position: relative;
+    /* مهم */
+    width: 100%;
+    margin-top: 16px;
+
+    display: flex;
+    justify-content: flex-end;
+    /* يمين – عدله لو تحب */
+    gap: 14px;
+    padding: 12px 8px;
+}
+
+/* ===== BUTTON STYLE ===== */
+.map-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 22px;
+    border-radius: 14px;
+    border: none;
+
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    color: #002;
+
+    transition: all 0.3s ease;
+}
+
+/* ===== HOVER ===== */
+.map-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 255, 180, 0.4);
+}
+
+/* ===== CAMERA BUTTON ===== */
+.camera-btn {
+    background: linear-gradient(135deg, #232526, #414345);
+    color: #fff;
+}
+
+/* ===== SEND BUTTON ===== */
+.send-btn {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .map-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .map-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

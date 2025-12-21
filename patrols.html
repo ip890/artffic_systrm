@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>الدوريات | نظام المرور الذكي</title>
+    <link rel="stylesheet" href="patrols.css">
+    <link rel="stylesheet" href="active.css">
+    <script src="active.js"></script>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <h3>🚦 نظام المرور الذكي</h3>
+        <div class="user-info">👮‍♂️ مرحبًا، مشرف الدوريات</div>
+    </nav>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="" class="logo-img">
+            <span class="logo-text">إدارة المرور</span>
+        </div>
+        <ul class="menu">
+            <li><a href="posss.html"> <i>🏠</i><span>الرئيسيه</span></a> </li>
+            <li><a href="statistics.html"> <i>📊</i><span>الاحصائيات</span></a> </li>
+            <li><a href="map.html"> <i>🗺️</i><span>الخرائط</span></a> </li>
+            <li><a href="" class="active"> <i>🚓</i><span>الدوريات</span></a> </li>
+            <li><a href="camera.html"> <i>📷</i><span>الكاميرات</span></a> </li>
+            <li><a href="stting.html"> <i>⚙️</i><span>الاعدادات</span></a> </li>
+
+        </ul>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content">
+
+        <div class="page-header">
+            <h2>🚓 إدارة الدوريات الميدانية</h2>
+            <button id="addPatrolBtn">➕ إضافة دورية</button>
+        </div>
+
+        <!-- ===== PATROLS GRID ===== -->
+        <div class="patrols-grid" id="patrolsGrid">
+            <!-- JS will generate cards -->
+        </div>
+
+    </main>
+
+    <script src="patrols.js"></script>
+</body>
+
+</html>

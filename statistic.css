@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f5f6fa;
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 70px;
+    background: #1e1e2d;
+    color: #fff;
+    padding-top: 20px;
+    transition: 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.sidebar:hover,
+.icon-aut {
+    width: 230px;
+}
+
+.icon-aut {
+    width: 70px;
+    background: #1e1e2d;
+    color: #fff;
+    padding-top: 20px;
+    transition: 0.3s;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.logo-text {
+    margin-right: 10px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sidebar:hover .logo-text {
+    opacity: 1;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.menu li {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #27293d;
+}
+
+.menu a {
+    display: flex;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+}
+
+.icon {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.menu li span {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sidebar:hover .menu li span {
+    opacity: 1;
+}
+
+/* MAIN */
+.main {
+    width: 100%;
+    padding: 20px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.date {
+    color: gray;
+}
+
+.notify {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.stats-page {
+    padding: 24px;
+    color: #fff;
+}
+
+/* Header */
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    color: #000;
+}
+
+.stats-header h2 {
+    font-size: 24px;
+}
+
+.time-filter select {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #1e1e2e;
+    color: #fff;
+    border: none;
+}
+
+/* KPI */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+    color: #000;
+}
+
+.kpi-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 18px;
+    border-radius: 18px;
+    transition: 0.4s;
+    color: #000;
+}
+
+.kpi-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.15);
+}
+
+.kpi-number {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.up {
+    color: #2ecc71;
+}
+
+.down {
+    color: #e74c3c;
+}
+
+.kpi-card.ai {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+/* Charts */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    color: #000;
+}
+
+.chart-card {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/* Insights */
+.insights-card {
+    margin-top: 28px;
+    padding: 22px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    border-radius: 22px;
+    color: #002;
+}

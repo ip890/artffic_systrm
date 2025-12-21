@@ -1,0 +1,295 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f5f6fa;
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 70px;
+    background: #1e1e2d;
+    color: #fff;
+    padding-top: 20px;
+    transition: 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.sidebar:hover,
+.icon-aut {
+    width: 230px;
+}
+
+.icon-aut {
+    width: 70px;
+    background: #1e1e2d;
+    color: #fff;
+    padding-top: 20px;
+    transition: 0.3s;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.logo-text {
+    margin-right: 10px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sidebar:hover .logo-text {
+    opacity: 1;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.menu li {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #27293d;
+}
+
+.menu a {
+    display: flex;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+}
+
+.icon {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.menu li span {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sidebar:hover .menu li span {
+    opacity: 1;
+}
+
+/* MAIN */
+.main {
+    width: 100%;
+    padding: 20px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.date {
+    color: gray;
+}
+
+.notify {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.checkpoints-page {
+    padding: 24px;
+    color: #000;
+}
+
+
+.cameras-page {
+    padding: 24px;
+    color: #add6e0;
+}
+
+/* Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #0f2027;
+}
+
+.header-actions button {
+    margin-left: 8px;
+    color: #000;
+}
+
+/* Buttons */
+.ai-btn {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 16px;
+    color: #fff;
+}
+
+.link-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 14px;
+    color: #fff;
+}
+
+/* KPIs */
+.camera-kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+    color: #000;
+}
+
+.kpi {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 16px;
+    border-radius: 18px;
+}
+
+.kpi.active {
+    border-left: 4px solid #2ecc71;
+}
+
+.kpi.warning {
+    border-left: 4px solid #f1c40f;
+}
+
+.kpi.danger {
+    border-left: 4px solid #e74c3c;
+}
+
+/* Cameras Grid */
+.cameras-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.camera-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 14px;
+    color: #000;
+    border: 1px solid rgb(94, 94, 194);
+}
+
+.camera-card.warning {
+    border: 1px solid #f1c40f;
+}
+
+.camera-card.danger {
+    border: 1px solid #e74c3c;
+}
+
+.camera-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.status.live {
+    color: #2ecc71;
+    animation: blink 1.5s infinite;
+}
+
+.status.offline {
+    color: #e74c3c;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.camera-feed {
+    height: 160px;
+    background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.scan-line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 255, 255, 0.6);
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+.camera-feed.offline {
+    background: #333;
+}
+
+/* Actions */
+.camera-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.camera-actions button {
+    flex: 1;
+    padding: 6px;
+    border-radius: 12px;
+    border: none;
+}
+
+/* AI Panel */
+.ai-panel {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    padding: 22px;
+    border-radius: 24px;
+}

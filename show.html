@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>عرض الخدمات | نظام المرور الذكي</title>
+
+<style>
+:root{
+    --main:#0f172a;
+    --accent:#38bdf8;
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --text:#1e293b;
+}
+
+*{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* ===== NAV ===== */
+nav{
+    background:var(--main);
+    color:#fff;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav button{
+    background:var(--accent);
+    border:none;
+    padding:8px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    color:#000;
+}
+
+/* ===== HEADER ===== */
+header{
+    text-align:center;
+    padding:50px 20px;
+}
+
+header h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+header p{
+    color:#475569;
+}
+
+/* ===== SERVICES ===== */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+.service{
+    background:var(--card);
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.service::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,var(--accent),transparent);
+    opacity:.08;
+}
+
+.service:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+.service .icon{
+    font-size:40px;
+}
+
+.service h3{
+    margin:15px 0 8px;
+}
+
+.service button{
+    margin-top:15px;
+    background:var(--main);
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:14px;
+    cursor:pointer;
+}
+
+/* ===== MODAL ===== */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-box{
+    background:#fff;
+    width:360px;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.modal-box h3{
+    margin-bottom:10px;
+}
+
+.modal-box button{
+    margin-top:20px;
+    background:var(--accent);
+    border:none;
+    padding:10px 20px;
+    border-radius:18px;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:20px;
+    color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+    <div>🚔 نظام المرور الذكي</div>
+    <button onclick="goHome()">🏠 الرئيسية</button>
+</nav>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <h1>🧩 خدمات النظام</h1>
+    <p>كل ما تحتاجه لإدارة المرور بذكاء واحترافية</p>
+</header>
+
+<!-- ===== SERVICES ===== -->
+<section class="services">
+
+    <div class="service">
+        <div class="icon">🚗</div>
+        <h3>إدارة المركبات</h3>
+        <p>تسجيل وتتبع المركبات وربطها بالمخالفات.</p>
+        <button onclick="openService('إدارة المركبات')">عرض</button>
+    </div>
+
+    <div class="service">
+        <div class="icon">⚠️</div>
+        <h3>إدارة المخالفات</h3>
+        <p>تسجيل، متابعة، ودفع المخالفات.</p>
+        <button onclick="openService('إدارة المخالفات')">عرض</button>
+    </div>
+
+    <div class="service">
+        <div class="icon">📊</div>
+        <h3>التحليلات</h3>
+        <p>رسوم بيانية وإحصائيات تفاعلية.</p>
+        <button onclick="openService('التحليلات')">عرض</button>
+    </div>
+
+    <div class="service">
+        <div class="icon">🗺️</div>
+        <h3>الخرائط الذكية</h3>
+        <p>تحديد مناطق الخطورة والكاميرات.</p>
+        <button onclick="openService('الخرائط الذكية')">عرض</button>
+    </div>
+
+    <div class="service">
+        <div class="icon">👮‍♂️</div>
+        <h3>الدوريات</h3>
+        <p>إدارة وتتبع الدوريات الميدانية.</p>
+        <button onclick="openService('الدوريات')">عرض</button>
+    </div>
+
+    <div class="service">
+        <div class="icon">⚙️</div>
+        <h3>الإعدادات</h3>
+        <p>التحكم بالصلاحيات والنظام.</p>
+        <button onclick="openService('الإعدادات')">عرض</button>
+    </div>
+
+</section>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h3 id="modalTitle"></h3>
+        <p>سيتم تحويلك إلى هذه الخدمة عند الربط النهائي.</p>
+        <button onclick="closeModal()">حسنًا</button>
+    </div>
+</div>
+
+<footer>
+    © 2025 نظام المرور الذكي – جميع الحقوق محفوظة
+</footer>
+
+<script>
+function openService(name){
+    document.getElementById("modalTitle").innerText = name;
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+
+function goHome(){
+    window.location.href="posss.html";
+}
+</script>
+
+</body>
+</html>

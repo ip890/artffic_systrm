@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكاميرات</title>
+    <!--style-->
+    <link rel="stylesheet" href="camera.css">
+        <link rel="stylesheet" href="active.css">
+      <script src="active.js"></script>
+</head>
+<body>
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="/img/images.png" alt="شعار" class="logo-img">
+            <span class="logo-text">إدارة المرور</span>
+        </div>
+    
+        <ul class="menu">
+    
+            <li ><a href="posss.html" ><i class="icon">🏠</i><span>الرئيسية</span></a></li>
+            <li><a href="index.html"><i class="icon">📊</i><span>لوحة التحكم</span></a></li>
+            <li><a href="cars.html"><i class="icon">🚗</i><span>المركبات</span></a></li>
+            <li><a href="add-vehicle.html"><i class="icon">📄</i><span>تسجيل مركبة جديدة</span></a></li>
+            <li><a href="violations.html"><i class="icon">⚠️</i><span>المخالفات</span></a></li>
+            <li><a href="analysis.html"><i class="icon">📊</i><span>تحليلات البيانات</span></a></li>
+            <li><a href="user.html"><i class="icon">🧍‍♂️</i><span>المستخدمين</span></a></li>
+            <li><a href="fills.html"><i class="icon">📁</i><span>إدارة الملفات</span></a></li>
+            <li><a href="inspection.hrml"><i class="icon">📍</i><span>نقاط التفتيش</span></a></li>
+    
+    
+            <!-- الصفحات الجديدة -->
+            <li><a href="statistic.html"><i class="icon">📈</i><span>الاحصائيات</span></a></li>
+            <li><a href="map.html"><i class="icon">🗺️</i><span>الخرائط</span></a></li>
+            <li><a href="prediction.html"><i class="icon">⚡</i><span>التنبؤات</span></a></li>
+            <li><a href="stting.html"><i class="icon">⚡</i><span> لإعداد ت<span></a></li>
+            <li><a href="camera.html" class="active"><i class="icon">🎥</i><span>كاميرات المراقبة</span></a></li>
+            <li class="icon-aut"><a href="#"><i class="icon">🔐</i><span>تسجيل لخروج</span></a></li>
+        </ul>
+    </aside>
+    
+    <!-- ============ MAIN CONTENT ============ -->
+    <section class="main">
+    
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="left-nav">
+                <span class="title">نظام المرور الذكي</span>
+                <span class="date">مارس 2029</span>
+            </div>
+    
+            <div class="right-nav">
+                <i class="notify">🔔</i>
+            </div>
+        </nav>
+
+        <section class="cameras-page">
+        
+            <!-- Header -->
+            <div class="page-header">
+                <h2>🎥 كاميرات المراقبة الذكية</h2>
+                <div class="header-actions">
+                    <button class="ai-btn">🧠 AI Vision</button>
+                    <button class="link-btn">🚔 ربط بالمرور</button>
+                    <button class="link-btn">🚧 ربط بنقاط التفتيش</button>
+                </div>
+            </div>
+        
+            <!-- KPIs -->
+            <div class="camera-kpis">
+                <div class="kpi">
+                    <h4>إجمالي الكاميرات</h4>
+                    <span class="num" data-target="128">0</span>
+                </div>
+                <div class="kpi active">
+                    <h4>نشطة</h4>
+                    <span class="num" data-target="112">0</span>
+                </div>
+                <div class="kpi warning">
+                    <h4>تحت المراقبة</h4>
+                    <span class="num" data-target="10">0</span>
+                </div>
+                <div class="kpi danger">
+                    <h4>إنذارات مباشرة</h4>
+                    <span class="num" data-target="6">0</span>
+                </div>
+            </div>
+        
+            <!-- Live Cameras Grid -->
+            <div class="cameras-grid">
+        
+                <div class="camera-card danger">
+                    <div class="camera-header">
+                        <span>📍 تقاطع الكبري</span>
+                        <span class="status live">LIVE</span>
+                    </div>
+                    <div class="camera-feed">
+                        <div class="scan-line"></div>
+                        🚗🚗 ازدحام عالي
+                    </div>
+                    <div class="camera-actions">
+                        <button>📡 إرسال الموقع</button>
+                        <button>🚔 إرسال دورية</button>
+                        <button>👁 تكبير</button>
+                    </div>
+                </div>
+        
+                <div class="camera-card warning">
+                    <div class="camera-header">
+                        <span>📍 طريق المطار</span>
+                        <span class="status live">LIVE</span>
+                    </div>
+                    <div class="camera-feed">
+                        🚙 حركة متوسطة
+                    </div>
+                    <div class="camera-actions">
+                        <button>📡 إرسال الموقع</button>
+                        <button>🚧 ربط نقطة تفتيش</button>
+                    </div>
+                </div>
+        
+                <div class="camera-card">
+                    <div class="camera-header">
+                        <span>📍 شارع النيل</span>
+                        <span class="status offline">OFF</span>
+                    </div>
+                    <div class="camera-feed offline">
+                        ❌ الكاميرا غير متصلة
+                    </div>
+                    <div class="camera-actions">
+                        <button>🔄 إعادة تشغيل</button>
+                    </div>
+                </div>
+        
+            </div>
+        
+            <!-- AI Insights -->
+            <div class="ai-panel">
+                <h3>🤖 تحليلات الكاميرات الذكية</h3>
+                <ul>
+                    <li>🚨 رصد ازدحام غير طبيعي عند تقاطع الكبري</li>
+                    <li>📈 احتمالية مخالفة سرعة خلال 30 دقيقة</li>
+                    <li>🛑 اقتراح تفعيل نقطة تفتيش قريبة</li>
+                </ul>
+                <div class="ai-actions">
+                    <button>✅ تنفيذ التوصيات</button>
+                    <button>📤 مشاركة</button>
+                </div>
+            </div>
+        
+        </section>
+        
+        <script src="camera.js"></script>
+</body>
+</html>

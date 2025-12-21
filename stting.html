@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>⚙ الإعدادات - نظام المرور الذكي</title>
+    <link rel="stylesheet" href="stting.css">
+    <link rel="stylesheet" href="active.css">
+    <script src="active.js"></script>
+</head>
+
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <h2>🚔 المرور الذكي</h2>
+        <ul>
+            <li>🏠 الرئيسية</li>
+            <li>⚠ المخالفات</li>
+            <li>📊 الإحصائيات</li>
+            <li>📈 التحليلات</li>
+            <li>🗺 الخرائط</li>
+            <li>🎥 الكاميرات</li>
+            <li class="active">⚙ الإعدادات</li>
+        </ul>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main">
+
+        <!-- NAV -->
+        <nav class="navbar">
+            ⚙ الإعدادات العامة للنظام
+            <button id="saveAll">💾 حفظ الكل</button>
+        </nav>
+        <main class="main">
+
+            <nav class="navbar">
+                👥 إدارة صلاحيات المستخدمين
+                <button id="saveRoles">💾 حفظ</button>
+            </nav>
+
+            <section class="roles">
+
+                <!-- مدير -->
+                <div class="role-card admin">
+                    <h3>👑 المدير</h3>
+                    <label><input type="checkbox" checked disabled> الوصول الكامل</label>
+                </div>
+
+                <!-- مشرف -->
+                <div class="role-card">
+                    <h3>🛡 المشرف</h3>
+                    <label><input type="checkbox" data-role="supervisor" data-page="violations"> إدارة المخالفات</label>
+                    <label><input type="checkbox" data-role="supervisor" data-page="maps"> الخرائط</label>
+                    <label><input type="checkbox" data-role="supervisor" data-page="cameras"> الكاميرات</label>
+                    <label><input type="checkbox" data-role="supervisor" data-page="files"> إدارة الملفات</label>
+                </div>
+
+                <!-- مراقب -->
+                <div class="role-card">
+                    <h3>👁 المراقب</h3>
+                    <label><input type="checkbox" data-role="viewer" data-page="violations"> عرض المخالفات</label>
+                    <label><input type="checkbox" data-role="viewer" data-page="stats"> الإحصائيات</label>
+                    <label><input type="checkbox" data-role="viewer" data-page="maps"> عرض الخرائط</label>
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- SETTINGS GRID -->
+        <section class="settings">
+
+            <!-- ===== SYSTEM ===== -->
+            <div class="card">
+                <h3>⚙ إعدادات النظام</h3>
+                <label><input type="checkbox" checked> تفعيل النظام</label>
+                <label><input type="checkbox"> وضع الصيانة</label>
+                <label>
+                    اللغة:
+                    <select>
+                        <option>العربية</option>
+                        <option>English</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- ===== VIOLATIONS ===== -->
+            <div class="card">
+                <h3>⚠ إعدادات المخالفات</h3>
+                <label><input type="checkbox" checked> إشعارات المخالفات الجديدة</label>
+                <label><input type="checkbox"> إظهار المخالفات الملغاة</label>
+                <label>
+                    المهلة قبل الإرسال:
+                    <input type="range" min="1" max="10">
+                </label>
+            </div>
+
+            <!-- ===== MAPS ===== -->
+            <div class="card">
+                <h3>🗺 إعدادات الخرائط</h3>
+                <label><input type="checkbox" checked> عرض المناطق عالية الخطورة</label>
+                <label><input type="checkbox"> عرض الكاميرات تلقائيًا</label>
+                <label>
+                    نمط الخريطة:
+                    <select>
+                        <option>داكن</option>
+                        <option>فاتح</option>
+                        <option>قمر صناعي</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- ===== CAMERAS ===== -->
+            <div class="card">
+                <h3>🎥 إعدادات الكاميرات</h3>
+                <label><input type="checkbox" checked> تشغيل البث التلقائي</label>
+                <label><input type="checkbox"> تسجيل الأعطال</label>
+                <label>
+                    جودة البث:
+                    <select>
+                        <option>عالية</option>
+                        <option>متوسطة</option>
+                        <option>منخفضة</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- ===== AI ===== -->
+            <div class="card">
+                <h3>🤖 إعدادات الذكاء الاصطناعي</h3>
+                <label><input type="checkbox" checked> التوصيات التلقائية</label>
+                <label><input type="checkbox"> التعلم من البيانات</label>
+                <label>
+                    مستوى الذكاء:
+                    <select>
+                        <option>متقدم</option>
+                        <option>متوسط</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- ===== USERS ===== -->
+            <div class="card">
+                <h3>🧍‍♂ إعدادات المستخدمين</h3>
+                <label><input type="checkbox"> السماح بتعدد الجلسات</label>
+                <label><input type="checkbox" checked> تسجيل النشاط</label>
+                <label>
+                    مدة الجلسة:
+                    <input type="number" value="30"> دقيقة
+                </label>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="stting.js"></script>
+</body>
+
+</html>

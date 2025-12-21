@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول | نظام المرور الذكي</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="active.css">
+    <script src="active.js"></script>
+</head>
+<body>
+
+<div class="login-container">
+
+    <div class="login-card">
+        <h2>🚔 نظام المرور الذكي</h2>
+        <p class="subtitle">تسجيل الدخول الآمن</p>
+
+        <!-- ROLE -->
+        <select id="role">
+            <option value="">اختر الصلاحية</option>
+            <option value="Admin">🛡️ مدير النظام</option>
+            <option value="Supervisor">👮‍♂️ مشرف</option>
+            <option value="Operator">👤 موظف</option>
+        </select>
+
+        <!-- USER -->
+        <input type="text" id="username" placeholder="اسم المستخدم">
+
+        <!-- PASSWORD -->
+        <input type="password" id="password" placeholder="كلمة المرور">
+
+        <button id="loginBtn">🔐 تسجيل الدخول</button>
+
+        <p class="hint">يتم تحديد الصلاحيات قبل الدخول</p>
+    </div>
+
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

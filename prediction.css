@@ -1,0 +1,126 @@
+:root{
+  --primary:#1e3a8a;
+  --accent:#2563eb;
+  --bg:#f1f5f9;
+  --card:#fff;
+}
+
+body{
+  margin:0;
+  font-family:Tahoma;
+  background:var(--bg);
+  display:flex;
+}
+
+.sidebar{
+  width:220px;
+  background:var(--primary);
+  color:#fff;
+  min-height:100vh;
+}
+
+.sidebar ul li{
+  padding:12px;
+  cursor:pointer;
+}
+.sidebar ul li.active,
+.sidebar ul li:hover{
+  background:var(--accent);
+}
+
+.main{
+  flex:1;
+  padding:20px;
+}
+
+.navbar{
+  background:#fff;
+  padding:10px;
+  margin-bottom:15px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.card{
+  background:var(--card);
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:8px;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.summary .box{
+  background:#fff;
+  padding:15px;
+  text-align:center;
+  border-radius:8px;
+  transition:.3s;
+}
+.summary .box:hover{
+  transform:scale(1.05);
+  background:#e0e7ff;
+}
+
+.insights .tip{
+  padding:10px;
+  margin:8px 0;
+  border-right:5px solid;
+}
+.tip.high{border-color:#dc2626}
+.tip.mid{border-color:#f59e0b}
+.tip.low{border-color:#16a34a}
+
+/* last insirt opject in side omer*/
+.scenario-buttons{
+  display:flex;
+  gap:10px;
+}
+.scenario-buttons button{
+  flex:1;
+  padding:10px;
+  border:none;
+  cursor:pointer;
+  border-radius:6px;
+  background:#e5e7eb;
+}
+.scenario-buttons button.active{
+  background:#2563eb;
+  color:#fff;
+}
+
+/*confidance level*/
+.meter{
+  background:#e5e7eb;
+  height:10px;
+  border-radius:10px;
+  overflow:hidden;
+  margin:8px 0;
+}
+.meter span{
+  display:block;
+  height:100%;
+  width:87%;
+  background:linear-gradient(90deg,#22c55e,#2563eb);
+}
+/*ai bix*/
+.ai-box{
+  background:linear-gradient(135deg,#eef2ff,#fff);
+  border-right:5px solid #6366f1;
+}
+.ai-box{
+  background:linear-gradient(135deg,#eef2ff,#fff);
+  border-right:5px solid #6366f1;
+}
