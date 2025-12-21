@@ -12,7 +12,11 @@ body {
     background: #020617;
     padding: 20px;
 }
-a{ text-decoration: none;}
+a{ text-decoration: none;
+ color:inherit;
+  
+  
+ }
 
 .sidebar ul {
     list-style: none;
@@ -118,5 +122,6 @@ button {
     border: 2px solid gold;
 
 }
+
 
 
