@@ -17,7 +17,7 @@ body {
     list-style: none;
     padding: 0;
 }
-
+a{text-dicoration:none;}
 .sidebar li {
     padding: 12px;
     cursor: pointer;
@@ -115,4 +115,5 @@ button {
 
 .admin {
     border: 2px solid gold;
+
 }
