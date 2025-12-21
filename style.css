@@ -88,6 +88,8 @@ body {
     align-items: center;
     cursor: pointer;
 }
+a{
+text-decoration:none}
 
 .menu li:hover {
     background: #27293d;
