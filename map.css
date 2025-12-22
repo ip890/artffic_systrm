@@ -51,9 +51,11 @@ a{ text-decoration:none;}
     gap: 15px;
 }
 
-.logo i {
+.logo img {
     font-size: 28px;
     color: #4fc3f7;
+    width:20px;
+    border-radius:50%:
 }
 
 .logo h2 {
