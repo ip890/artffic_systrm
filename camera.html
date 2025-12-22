@@ -3,156 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الكاميرات</title>
-    <!--style-->
+    <title>كاميرات المراقبة - نظام المرور الذكي</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- الخطوط العربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- الأنماط -->
     <link rel="stylesheet" href="camera.css">
-        <link rel="stylesheet" href="active.css">
-      <script src="active.js"></script>
 </head>
 <body>
     <!-- ============ SIDEBAR ============ -->
     <aside class="sidebar">
-        <div class="logo">
-            <img src="images.png" alt="شعار" class="logo-img">
-            <span class="logo-text">إدارة المرور</span>
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-traffic-light"></i>
+                </div>
+                <div class="logo-text">
+                    <h2>إدارة المرور</h2>
+                    <p>النظام الذكي</p>
+                </div>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
-    
-        <ul class="menu">
-    
-            <li ><a href="posss.html" ><i class="icon">🏠</i><span>الرئيسية</span></a></li>
-            <li><a href="index.html"><i class="icon">📊</i><span>لوحة التحكم</span></a></li>
-            <li><a href="cars.html"><i class="icon">🚗</i><span>المركبات</span></a></li>
-            <li><a href="add-vehicle.html"><i class="icon">📄</i><span>تسجيل مركبة جديدة</span></a></li>
-            <li><a href="violations.html"><i class="icon">⚠️</i><span>المخالفات</span></a></li>
-            <li><a href="analysis.html"><i class="icon">📊</i><span>تحليلات البيانات</span></a></li>
-            <li><a href="user.html"><i class="icon">🧍‍♂️</i><span>المستخدمين</span></a></li>
-            <li><a href="fills.html"><i class="icon">📁</i><span>إدارة الملفات</span></a></li>
-            <li><a href="inspection.hrml"><i class="icon">📍</i><span>نقاط التفتيش</span></a></li>
-    
-    
-            <!-- الصفحات الجديدة -->
-            <li><a href="statistic.html"><i class="icon">📈</i><span>الاحصائيات</span></a></li>
-            <li><a href="map.html"><i class="icon">🗺️</i><span>الخرائط</span></a></li>
-            <li><a href="prediction.html"><i class="icon">⚡</i><span>التنبؤات</span></a></li>
-            <li><a href="stting.html"><i class="icon">⚡</i><span> لإعداد ت<span></a></li>
-            <li><a href="camera.html" class="active"><i class="icon">🎥</i><span>كاميرات المراقبة</span></a></li>
-            <li class="icon-aut"><a href="#"><i class="icon">🔐</i><span>تسجيل لخروج</span></a></li>
-        </ul>
+        
+        <div class="user-info">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-details">
+                <h3>محمد أحمد</h3>
+                <p>مدير النظام</p>
+            </div>
+            <div class="user-status">
+                <span class="status-dot active"></span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="posss.html">
+                        <i class="fas fa-home"></i>
+                        <span class="menu-text">الرئيسية</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="menu-text">لوحة التحكم</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cars.html">
+                        <i class="fas fa-car"></i>
+                        <span class="menu-text">المركبات</span>
+                        <span class="menu-badge">12</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="add-vehicle.html">
+                        <i class="fas fa-plus-circle"></i>
+                        <span class="menu-text">تسجيل مركبة</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="violations.html">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span class="menu-text">المخالفات</span>
+                        <span class="menu-badge">8</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="analysis.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="menu-text">تحليلات البيانات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="fas fa-users"></i>
+                        <span class="menu-text">المستخدمين</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fills.html">
+                        <i class="fas fa-folder"></i>
+                        <span class="menu-text">إدارة الملفات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inspection.html">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="menu-text">نقاط التفتيش</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="statistic.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="menu-text">الإحصائيات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="map.html">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span class="menu-text">الخرائط</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="prediction.html">
+                        <i class="fas fa-crystal-ball"></i>
+                        <span class="menu-text">التنبؤات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="stting.html">
+                        <i class="fas fa-cog"></i>
+                        <span class="menu-text">الإعدادات</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="camera.html">
+                        <i class="fas fa-video"></i>
+                        <span class="menu-text">كاميرات المراقبة</span>
+                        <span class="menu-badge active">6</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="system-status">
+                <div class="status-info">
+                    <i class="fas fa-server"></i>
+                    <div>
+                        <p>حالة النظام</p>
+                        <p class="status-text online">يعمل بكفاءة</p>
+                    </div>
+                </div>
+                <div class="status-indicator">
+                    <div class="progress-ring">
+                        <svg width="40" height="40">
+                            <circle class="progress-ring-circle" cx="20" cy="20" r="18" stroke-width="3" fill="transparent"/>
+                        </svg>
+                        <span>92%</span>
+                    </div>
+                </div>
+            </div>
+            <a href="logout.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </div>
     </aside>
     
     <!-- ============ MAIN CONTENT ============ -->
-    <section class="main">
-    
+    <main class="main-content">
         <!-- NAVBAR -->
         <nav class="navbar">
-            <div class="left-nav">
-                <span class="title">نظام المرور الذكي</span>
-                <span class="date">مارس 2029</span>
+            <div class="navbar-left">
+                <div class="breadcrumb">
+                    <span>نظام المرور الذكي</span>
+                    <i class="fas fa-chevron-left"></i>
+                    <span class="current-page">كاميرات المراقبة</span>
+                </div>
+                <div class="current-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="currentDate">مارس 2029</span>
+                </div>
             </div>
-    
-            <div class="right-nav">
-                <i class="notify">🔔</i>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث في الكاميرات...">
+                </div>
+                <div class="navbar-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="fullscreen-btn">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
             </div>
         </nav>
 
+        <!-- CONTENT -->
         <section class="cameras-page">
-        
             <!-- Header -->
             <div class="page-header">
-                <h2>🎥 كاميرات المراقبة الذكية</h2>
+                <div class="header-title">
+                    <h1>
+                        <i class="fas fa-video"></i>
+                        كاميرات المراقبة الذكية
+                    </h1>
+                    <p>مراقبة حية وتحليل ذكي لحركة المرور</p>
+                </div>
                 <div class="header-actions">
-                    <button class="ai-btn">🧠 AI Vision</button>
-                    <button class="link-btn">🚔 ربط بالمرور</button>
-                    <button class="link-btn">🚧 ربط بنقاط التفتيش</button>
+                    <button class="action-btn ai-btn">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Vision</span>
+                    </button>
+                    <button class="action-btn link-btn">
+                        <i class="fas fa-link"></i>
+                        <span>ربط بالمرور</span>
+                    </button>
+                    <button class="action-btn link-btn">
+                        <i class="fas fa-traffic-light"></i>
+                        <span>ربط بنقاط التفتيش</span>
+                    </button>
+                    <button class="action-btn add-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>إضافة كاميرا</span>
+                    </button>
                 </div>
             </div>
-        
+            
             <!-- KPIs -->
             <div class="camera-kpis">
-                <div class="kpi">
-                    <h4>إجمالي الكاميرات</h4>
-                    <span class="num" data-target="128">0</span>
+                <div class="kpi-card">
+                    <div class="kpi-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>إجمالي الكاميرات</h3>
+                        <div class="kpi-value" data-target="128">0</div>
+                    </div>
                 </div>
-                <div class="kpi active">
-                    <h4>نشطة</h4>
-                    <span class="num" data-target="112">0</span>
+                
+                <div class="kpi-card active">
+                    <div class="kpi-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>كاميرات نشطة</h3>
+                        <div class="kpi-value" data-target="112">0</div>
+                    </div>
                 </div>
-                <div class="kpi warning">
-                    <h4>تحت المراقبة</h4>
-                    <span class="num" data-target="10">0</span>
+                
+                <div class="kpi-card warning">
+                    <div class="kpi-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>تحت المراقبة</h3>
+                        <div class="kpi-value" data-target="10">0</div>
+                    </div>
                 </div>
-                <div class="kpi danger">
-                    <h4>إنذارات مباشرة</h4>
-                    <span class="num" data-target="6">0</span>
+                
+                <div class="kpi-card danger">
+                    <div class="kpi-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>إنذارات مباشرة</h3>
+                        <div class="kpi-value" data-target="6">0</div>
+                    </div>
                 </div>
             </div>
-        
+            
             <!-- Live Cameras Grid -->
             <div class="cameras-grid">
-        
                 <div class="camera-card danger">
                     <div class="camera-header">
-                        <span>📍 تقاطع الكبري</span>
-                        <span class="status live">LIVE</span>
+                        <div class="camera-title">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>تقاطع الكبري</h3>
+                        </div>
+                        <div class="camera-status">
+                            <span class="status-badge live">
+                                <i class="fas fa-circle"></i>
+                                LIVE
+                            </span>
+                        </div>
                     </div>
+                    
                     <div class="camera-feed">
-                        <div class="scan-line"></div>
-                        🚗🚗 ازدحام عالي
+                        <div class="feed-placeholder">
+                            <div class="scan-line"></div>
+                            <i class="fas fa-video"></i>
+                            <p>بث مباشر</p>
+                            <div class="traffic-indicator">
+                                <i class="fas fa-car"></i>
+                                <span>ازدحام عالي</span>
+                            </div>
+                        </div>
+                        <div class="feed-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>150+ مركبة/ساعة</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>مباشر الآن</span>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="camera-actions">
-                        <button>📡 إرسال الموقع</button>
-                        <button>🚔 إرسال دورية</button>
-                        <button>👁 تكبير</button>
+                        <button class="action-btn">
+                            <i class="fas fa-location-arrow"></i>
+                            <span>إرسال الموقع</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-car"></i>
+                            <span>إرسال دورية</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-search-plus"></i>
+                            <span>تكبير</span>
+                        </button>
                     </div>
                 </div>
-        
+                
                 <div class="camera-card warning">
                     <div class="camera-header">
-                        <span>📍 طريق المطار</span>
-                        <span class="status live">LIVE</span>
+                        <div class="camera-title">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>طريق المطار</h3>
+                        </div>
+                        <div class="camera-status">
+                            <span class="status-badge live">
+                                <i class="fas fa-circle"></i>
+                                LIVE
+                            </span>
+                        </div>
                     </div>
+                    
                     <div class="camera-feed">
-                        🚙 حركة متوسطة
+                        <div class="feed-placeholder">
+                            <i class="fas fa-video"></i>
+                            <p>بث مباشر</p>
+                            <div class="traffic-indicator">
+                                <i class="fas fa-car"></i>
+                                <span>حركة متوسطة</span>
+                            </div>
+                        </div>
+                        <div class="feed-stats">
+                            <div class="stat">
+                                <i class="fas fa-car"></i>
+                                <span>85 مركبة/ساعة</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>مباشر الآن</span>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="camera-actions">
-                        <button>📡 إرسال الموقع</button>
-                        <button>🚧 ربط نقطة تفتيش</button>
+                        <button class="action-btn">
+                            <i class="fas fa-location-arrow"></i>
+                            <span>إرسال الموقع</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-traffic-light"></i>
+                            <span>ربط نقطة تفتيش</span>
+                        </button>
                     </div>
                 </div>
-        
+                
                 <div class="camera-card">
                     <div class="camera-header">
-                        <span>📍 شارع النيل</span>
-                        <span class="status offline">OFF</span>
+                        <div class="camera-title">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>شارع النيل</h3>
+                        </div>
+                        <div class="camera-status">
+                            <span class="status-badge offline">
+                                <i class="fas fa-circle"></i>
+                                OFFLINE
+                            </span>
+                        </div>
                     </div>
+                    
                     <div class="camera-feed offline">
-                        ❌ الكاميرا غير متصلة
+                        <div class="feed-placeholder">
+                            <i class="fas fa-video-slash"></i>
+                            <p>الكاميرا غير متصلة</p>
+                            <div class="error-message">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>خطأ في الاتصال</span>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="camera-actions">
-                        <button>🔄 إعادة تشغيل</button>
+                        <button class="action-btn">
+                            <i class="fas fa-redo"></i>
+                            <span>إعادة تشغيل</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-tools"></i>
+                            <span>إصلاح</span>
+                        </button>
                     </div>
                 </div>
-        
             </div>
-        
+            
             <!-- AI Insights -->
             <div class="ai-panel">
-                <h3>🤖 تحليلات الكاميرات الذكية</h3>
-                <ul>
-                    <li>🚨 رصد ازدحام غير طبيعي عند تقاطع الكبري</li>
-                    <li>📈 احتمالية مخالفة سرعة خلال 30 دقيقة</li>
-                    <li>🛑 اقتراح تفعيل نقطة تفتيش قريبة</li>
-                </ul>
+                <div class="ai-header">
+                    <div class="ai-title">
+                        <i class="fas fa-robot"></i>
+                        <h2>تحليلات الكاميرات الذكية</h2>
+                    </div>
+                    <div class="ai-update">
+                        <span>آخر تحديث: قبل 5 دقائق</span>
+                        <button class="refresh-btn">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ai-insights">
+                    <div class="insight-item">
+                        <div class="insight-icon danger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>رصد ازدحام غير طبيعي</h4>
+                            <p>رصد ازدحام غير طبيعي عند تقاطع الكبري، زيادة بنسبة 45% عن المعدل المعتاد</p>
+                            <span class="insight-time">منذ 10 دقائق</span>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-item">
+                        <div class="insight-icon warning">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>احتمالية مخالفة سرعة</h4>
+                            <p>احتمالية حدوث مخالفات سرعة خلال 30 دقيقة بناءً على تحليل أنماط الحركة</p>
+                            <span class="insight-time">تنبؤ للـ 30 دقيقة القادمة</span>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-item">
+                        <div class="insight-icon success">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>اقتراح تفعيل نقطة تفتيش</h4>
+                            <p>اقتراح تفعيل نقطة تفتيش قريبة للتحكم في تدفق المرور وتقليل الازدحام</p>
+                            <span class="insight-time">توصية فورية</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="ai-actions">
-                    <button>✅ تنفيذ التوصيات</button>
-                    <button>📤 مشاركة</button>
+                    <button class="action-btn primary">
+                        <i class="fas fa-check"></i>
+                        <span>تنفيذ التوصيات</span>
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-share"></i>
+                        <span>مشاركة</span>
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-download"></i>
+                        <span>تحميل التقرير</span>
+                    </button>
                 </div>
             </div>
-        
         </section>
-        
-        <script src="camera.js"></script>
-</body>
+    </main>
 
+    <!-- JavaScript -->
+    <script src="camera.js"></script>
+</body>
 </html>
 
